@@ -85,9 +85,9 @@ export default class NativeDataList extends React.Component<DataListProps> {
 }
 
 const styles = StyleSheet.create({
-    itemParent:{ backgroundColor: '#E8E8E8', padding: 8 },
+    itemParent:{ backgroundColor: '#E8E8E8', padding: StyleConfig.countPixelRatio(8) },
     subItemParent:{
-        padding:  12,
+        padding:  StyleConfig.countPixelRatio(12),
         backgroundColor: 'white',
         borderColor:'#ccc',
         borderBottomWidth: 1

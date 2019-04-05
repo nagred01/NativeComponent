@@ -2,6 +2,7 @@ import * as React from "react";
 import NativeField from "../Interfaces/NativeField";
 import {Text, StyleSheet} from 'react-native';
 import  ReactNative from 'react-native';
+import StyleConfig from '../assets/StyleConfig/index'
 
 export interface TextProps extends NativeField {
     keyboardAppearance?: string;
@@ -86,36 +87,36 @@ export default class NativeText extends React.PureComponent<TextProps, TextState
 
 const styles = StyleSheet.create({
     labelText:{
-        fontSize: 24,
+        fontSize: StyleConfig.countFontSize(24),
         color: 'black',
         fontWeight: 'bold',
         //fontFamily: 'Cochin',
         //fontStyle: 'normal'
     },
     titleText:{
-        fontSize: 21,
+        fontSize: StyleConfig.countFontSize(21),
         color: 'darkgray',
         fontWeight: 'bold',
         //fontFamily: 'Cochin',
         //fontStyle: 'normal'
     },
     subTitleText: {
-        fontSize: 18,
+        fontSize: StyleConfig.countFontSize(18),
         color: 'darkgray',
         fontWeight: 'normal',
         //fontFamily: 'Cochin',
         //fontStyle: 'normal'
     },
     primaryText:{
-        fontSize: 15,
+        fontSize: StyleConfig.countFontSize(15),
         color: '#87cefa',
         fontWeight: 'normal',
-        padding: 12
+        padding: StyleConfig.countPixelRatio(12)
         //fontFamily: 'Cochin',
         //fontStyle: 'normal'
     },
     secondaryText: {
-        fontSize: 12,
+        fontSize: StyleConfig.countFontSize(12),
         color: 'black',
         fontWeight: 'normal',
         //fontFamily: 'Cochin',

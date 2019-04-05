@@ -5,7 +5,7 @@ import NativeText from '../component/NativeText'
 import NativeTextBox from '../component/NativeTextBox'
 import NativeImage from '../component/NativeImage'
 import NativeDataList from '../component/NativeDataList'
-
+import NativeHeader from '../component/NativeHeader';
 
 import StyleConfig from '../assets/StyleConfig/index'
 const { PlatformConstants } = NativeModules;
@@ -89,7 +89,8 @@ export default class App extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-
+                <NativeHeader headerText={'Header'}/>
+                <View style={styles.content}>
                 <NativeText  value={'this is native text'} />
                 <NativeTextBox
                     placeholder={"Enter your Password"}
@@ -115,6 +116,7 @@ export default class App extends Component<Props> {
                     itemsSource={this.state.dataListItems}
                     onClick={(item) => alert(JSON.stringify(item))}
                 />
+                </View>
             </View>
         );
     }
@@ -123,11 +125,11 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: Platform.OS === 'ios' ? 24 : 0,
-        backgroundColor: 'white',
-        justifyContent:'center',
-
-        paddingHorizontal: 16
+        backgroundColor: 'white'
+    },
+    content:{
+      flex:1,
+      marginHorizontal: 16
     },
     viewStyle:{
         height: 100,

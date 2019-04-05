@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Image, StyleSheet } from 'react-native';
 import NativeControl from "../Interfaces/NativeControl";
-
+import StyleConfig from '../assets/StyleConfig/index'
 interface ImageProps extends NativeControl {
     className:string,
     imageUrl:string,
@@ -29,5 +29,5 @@ export default class NativeImage extends React.Component<ImageProps> {
     }
 }
 const styles = StyleSheet.create({
-    image:{width: 200, height: 200}
+    image:{width: StyleConfig.countPixelRatio(200), height: StyleConfig.countPixelRatio(200)}
 });
