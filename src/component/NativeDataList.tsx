@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { TouchableOpacity, Text, View, FlatList, StyleSheet } from 'react-native';
 import NativeControl from "../Interfaces/NativeControl";
+import StyleConfig from '../assets/StyleConfig/index';
 
 interface DataListProps extends NativeControl {
     groupKey: string,
@@ -47,7 +48,6 @@ export default class NativeDataList extends React.Component<DataListProps> {
     }
     render() {
         const {itemParent, subItemParent, titleThemeText, titleBlackText, detailText } = styles
-        console.log({ data: this.state.data })
         return (
             <FlatList
                 data={this.state.data}
@@ -93,15 +93,15 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     titleThemeText:{
-        fontSize: 20,
+        fontSize: StyleConfig.countFontSize(20),
         color: '#4B759B'
     },
     titleBlackText:{
-        fontSize: 20,
+        fontSize: StyleConfig.countFontSize(20),
         color:'black'
     },
     detailText:{
-        fontSize: 15,
+        fontSize: StyleConfig.countFontSize(15),
         color:'black'
     }
 });
