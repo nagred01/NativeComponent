@@ -104,13 +104,13 @@ export default class App extends Component<Props> {
                     imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
                 />
                 <View style={styles.viewStyle} >
-                    <Text style={styles.textStyle}>Hiren</Text>
+                    <Text style={styles.textStyle}>viewStyle</Text>
                 </View>
                 <View style={styles.viewStyle1} >
-                    <Text style={styles.textStyle}>Hiren</Text>
+                    <Text style={styles.textStyle}>viewStyle1</Text>
                 </View>
                 <View style={styles.viewStyle2} >
-                    <Text style={styles.textStyle}>Hiren</Text>
+                    <Text style={styles.textStyle}>viewStyle2</Text>
                 </View>
                 <NativeDataList
                     itemsSource={this.state.dataListItems}
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     },
     content:{
       flex:1,
-      marginHorizontal: 16
+      marginHorizontal: StyleConfig.countFontSize(16)
     },
     viewStyle:{
         height: 100,
@@ -153,6 +153,6 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent: 'center'
     },
-    textStyle:{fontSize: StyleConfig.countFontSize(15), color:'white'}
+    textStyle:{fontSize: StyleConfig.countFontSize(20), color:'white'}
 
 });
