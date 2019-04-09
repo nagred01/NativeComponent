@@ -29,8 +29,8 @@ export default {
         return smartScale(defaultValue);
     },
     countFontSize:(size) => { return responsiveFontSize(size) },
-    reposiveHeight: (size) => perHeighToSize(size),
-    reposiveWidth: (size) => perWidthToSize(size),
+    responsiveHeight: (size) => perHeighToSize(size),
+    responsiveWidth: (size) => perWidthToSize(size),
     width,
     height,
     isIphone: Platform.OS === 'ios',

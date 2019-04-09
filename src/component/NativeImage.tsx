@@ -29,5 +29,5 @@ export default class NativeImage extends React.Component<ImageProps> {
     }
 }
 const styles = StyleSheet.create({
-    image:{width: StyleConfig.reposiveWidth(40) , height:StyleConfig.reposiveWidth(40) }
+    image:{width: StyleConfig.responsiveWidth(40) , height:StyleConfig.responsiveWidth(40) }
 });

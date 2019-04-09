@@ -164,8 +164,8 @@ const styles = StyleSheet.create({
     viewStyle3: {
         // https://github.com/DaniAkash/react-native-responsive-dimensions
         // https://medium.com/building-with-react-native/how-to-develop-responsive-uis-with-react-native-1x03-a448097c9503
-        height: StyleConfig.reposiveHeight(20),
-        width: StyleConfig.reposiveWidth(40),
+        height: StyleConfig.responsiveHeight(20),
+        width: StyleConfig.responsiveWidth(40),
         backgroundColor: 'pink',
         alignItems: 'center',
         justifyContent: 'center'
