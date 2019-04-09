@@ -58,7 +58,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
                         <TouchableOpacity
                             onPress={() => this._onExpand(item, index)}
                             style={itemParent} key={index}>
-                            <Text style={{ fontSize: 16 }}>{item.acType}</Text>
+                            <Text style={{ fontSize: StyleConfig.countFontSize(16) }}>{item.acType}</Text>
                         </TouchableOpacity>
                         {item.expanded === true && item.hasOwnProperty('items') && item.items.map((subItem, subIndex) => (
                             <TouchableOpacity key={subIndex+subIndex} onPress={() => this.handleClick(subItem)}

@@ -20,7 +20,7 @@ export default class NativeImage extends React.Component<ImageProps> {
         const {imageUrl, imageAlt} = this.props
         return (
            <Image
-               resizeMode={'contain'}
+               resizeMode={'stretch'}
                 source={{uri:this.state.imageError === 1 ? imageAlt : imageUrl}}
                 style={styles.image}
                 onError={this._onError}
@@ -29,5 +29,5 @@ export default class NativeImage extends React.Component<ImageProps> {
     }
 }
 const styles = StyleSheet.create({
-    image:{width: StyleConfig.countPixelRatio(200), height: StyleConfig.countPixelRatio(200)}
+    image:{width: StyleConfig.reposiveWidth(40) , height:StyleConfig.reposiveWidth(40) }
 });
