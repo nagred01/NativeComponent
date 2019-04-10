@@ -8,9 +8,6 @@ import NativeHeader from '../component/NativeHeader';
 
 import StyleConfig from '../assets/StyleConfig/index'
 
-const {PlatformConstants} = NativeModules;
-const deviceType = PlatformConstants.interfaceIdiom;
-const {width, height} = Dimensions.get('window');
 type Props = {};
 export default class App extends Component<Props> {
 
@@ -79,16 +76,6 @@ export default class App extends Component<Props> {
 
     }
 
-    componentDidMount() {
-        console.log('NativeModules', deviceType, JSON.stringify(Platform))
-        console.log('NativeModules 2', JSON.stringify(PlatformConstants))
-        console.log('PixelRatio=',JSON.stringify(PixelRatio))
-
-        console.log('12', StyleConfig.countFontSize(12))
-
-        console.log({height, width, hybrid: Math.sqrt(height * height + width * width)})
-        //Math.sqrt(height * height + width * width)
-    }
 
     render() {
         return (
@@ -110,14 +97,12 @@ export default class App extends Component<Props> {
                     <View style={styles.viewStyle}>
                         <Text style={styles.textStyle}>viewStyle</Text>
                     </View>
-                    <View style={styles.viewStyle1}>
-                        <Text style={styles.textStyle}>viewStyle1</Text>
-                    </View>
+
                     <View style={styles.viewStyle2}>
-                        <Text style={styles.textStyle}>viewStyle2</Text>
+                        <Text style={styles.textStyle}>Responsive</Text>
                     </View>
                     <View style={styles.viewStyle3}>
-                        <Text style={styles.textStyle}>viewStyle3</Text>
+                        <Text style={styles.textStyle}>Percentage</Text>
                     </View>
 
                     <NativeDataList
@@ -146,13 +131,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    viewStyle1: {
-        height: StyleConfig.countPixelRatio(100),
-        width: StyleConfig.countPixelRatio(200),
-        backgroundColor: 'green',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+
 
     viewStyle2: {
         height: StyleConfig.countFontSize(100),

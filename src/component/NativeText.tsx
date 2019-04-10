@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         fontSize: StyleConfig.countFontSize(15),
         color: '#87cefa',
         fontWeight: 'normal',
-        padding: StyleConfig.countPixelRatio(12)
+        padding: StyleConfig.countFontSize(12)
         //fontFamily: 'Cochin',
         //fontStyle: 'normal'
     },
