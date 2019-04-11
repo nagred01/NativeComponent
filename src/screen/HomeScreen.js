@@ -1,81 +1,23 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Platform, NativeModules, Dimensions, Text, ScrollView,PixelRatio} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Text, ScrollView} from 'react-native';
 import NativeText from '../component/NativeText'
 import NativeTextBox from '../component/NativeTextBox'
 import NativeImage from '../component/NativeImage'
 import NativeDataList from '../component/NativeDataList'
 import NativeHeader from '../component/NativeHeader';
-
+import { Actions } from 'react-native-router-flux' ;
 import StyleConfig from '../assets/StyleConfig/index'
-
+const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
 export default class App extends Component<Props> {
 
     constructor(props) {
         super(props);
         this.state = {
-            dataListItems: [
-                {
-                    acType: 'Checking',
-                    items: [
-                        {
-                            name: 'Free Checking',
-                            type: 'Current',
-                            balance: '$2,341.39',
-                            LBalance: '$2,341.39',
-                            availableType: 'Available',
-                            xType: 'x456-90',
-                            iconType: 'star',
-                            outStanding: ''
-                        }
-                    ]
-                },
-                {
-                    acType: 'Saving',
-                    items: [
-                        {
-                            name: 'Super Saving',
-                            type: 'Current',
-                            balance: '$3.27',
-                            LBalance: '$781.63',
-                            availableType: 'Available',
-                            xType: 'x456-90',
-                            outStanding: ''
-                        }
-                    ]
-                },
-                {
-                    acType: 'Loan',
-                    items: [
-                        {
-                            name: 'Home morgage',
-                            type: '',
-                            balance: '$183,399.01',
-                            LBalance: '',
-                            availableType: '',
-                            xType: 'x456-02',
-                            outStanding: 'Outstanding Balance'
-                        },
-                        {
-                            name: '2015 Tesla Loan',
-                            type: '',
-                            balance: '$2,466.34',
-                            LBalance: '',
-                            availableType: '',
-                            xType: 'x456-48',
-                            outStanding: 'Outstanding Balance'
-                        }
-                    ]
-                },
-                {
-                    acType: 'Test',
-                    items: []
-                }
-            ]
+            dataListItems:LIST_DATA
         }
 
     }
-
 
     render() {
         return (
@@ -101,14 +43,20 @@ export default class App extends Component<Props> {
                     <View style={styles.viewStyle2}>
                         <Text style={styles.textStyle}>Responsive</Text>
                     </View>
-                    <View style={styles.viewStyle3}>
+                    <View style={styles.viewStyle3} onPress={()=> alert('test')}>
                         <Text style={styles.textStyle}>Percentage</Text>
                     </View>
 
+                    <TouchableOpacity style={{backgroundColor:'grey', padding:StyleConfig.countFontSize(8)}}
+                                      onPress={()=> Actions.push('list_data')}>
+                        <Text style={styles.textStyle}>DataList Screen</Text>
+                    </TouchableOpacity>
                     <NativeDataList
                         itemsSource={this.state.dataListItems}
                         onClick={(item) => alert(JSON.stringify(item))}
                     />
+
+
                 </ScrollView>
             </View>
         );

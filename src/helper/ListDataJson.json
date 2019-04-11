@@ -1,0 +1,58 @@
+[
+  {
+    "acType": "Checking",
+    "items": [
+      {
+        "name": "Free Checking",
+        "type": "Current",
+        "balance": "$2,341.39",
+        "LBalance": "$2,341.39",
+        "availableType": "Available",
+        "xType": "x456-90",
+        "iconType": "star",
+        "outStanding": ""
+      }
+    ]
+  },
+  {
+    "acType": "Saving",
+    "items": [
+      {
+        "name": "Super Saving",
+        "type": "Current",
+        "balance": "$3.27",
+        "LBalance": "$781.63",
+        "availableType": "Available",
+        "xType": "x456-90",
+        "outStanding": ""
+      }
+    ]
+  },
+  {
+    "acType": "Loan",
+    "items": [
+      {
+        "name": "Home morgage",
+        "type": "",
+        "balance": "$183,399.01",
+        "LBalance": "",
+        "availableType": "",
+        "xType": "x456-02",
+        "outStanding": "Outstanding Balance"
+      },
+      {
+        "name": "2015 Tesla Loan",
+        "type": "",
+        "balance": "$2,466.34",
+        "LBalance": "",
+        "availableType": "",
+        "xType": "x456-48",
+        "outStanding": "Outstanding Balance"
+      }
+    ]
+  },
+  {
+    "acType": "Test",
+    "items": []
+  }
+]
