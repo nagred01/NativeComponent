@@ -7,71 +7,14 @@ import NativeDataList from '../component/NativeDataList'
 import NativeHeader from '../component/NativeHeader';
 import { Actions } from 'react-native-router-flux' ;
 import StyleConfig from '../assets/StyleConfig/index'
-
+const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
 export default class App extends Component<Props> {
 
     constructor(props) {
         super(props);
         this.state = {
-            dataListItems: [
-                {
-                    acType: 'Checking',
-                    items: [
-                        {
-                            name: 'Free Checking',
-                            type: 'Current',
-                            balance: '$2,341.39',
-                            LBalance: '$2,341.39',
-                            availableType: 'Available',
-                            xType: 'x456-90',
-                            iconType: 'star',
-                            outStanding: ''
-                        }
-                    ]
-                },
-                {
-                    acType: 'Saving',
-                    items: [
-                        {
-                            name: 'Super Saving',
-                            type: 'Current',
-                            balance: '$3.27',
-                            LBalance: '$781.63',
-                            availableType: 'Available',
-                            xType: 'x456-90',
-                            outStanding: ''
-                        }
-                    ]
-                },
-                {
-                    acType: 'Loan',
-                    items: [
-                        {
-                            name: 'Home morgage',
-                            type: '',
-                            balance: '$183,399.01',
-                            LBalance: '',
-                            availableType: '',
-                            xType: 'x456-02',
-                            outStanding: 'Outstanding Balance'
-                        },
-                        {
-                            name: '2015 Tesla Loan',
-                            type: '',
-                            balance: '$2,466.34',
-                            LBalance: '',
-                            availableType: '',
-                            xType: 'x456-48',
-                            outStanding: 'Outstanding Balance'
-                        }
-                    ]
-                },
-                {
-                    acType: 'Test',
-                    items: []
-                }
-            ]
+            dataListItems:LIST_DATA
         }
 
     }
@@ -108,12 +51,12 @@ export default class App extends Component<Props> {
                                       onPress={()=> Actions.push('list_data')}>
                         <Text style={styles.textStyle}>DataList Screen</Text>
                     </TouchableOpacity>
-
-
                     <NativeDataList
                         itemsSource={this.state.dataListItems}
                         onClick={(item) => alert(JSON.stringify(item))}
                     />
+
+
                 </ScrollView>
             </View>
         );

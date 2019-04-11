@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { TouchableOpacity, Text, View, FlatList, StyleSheet } from 'react-native';
 import NativeControl from "../Interfaces/NativeControl";
 import StyleConfig from '../assets/StyleConfig/index';

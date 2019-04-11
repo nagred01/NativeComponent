@@ -8,9 +8,12 @@ const iPhoneX = (Platform.OS === 'ios' && height === 812) || (Platform.OS === 'i
 // 896 for iPhoneXR,iphoneXS Max
 export default class NativeHeader extends React.Component {
     render(){
+        const {showBack, headerText, onBackPress} = this.props
         return(
             <View style={styles.header}>
-                <Text style={styles.text}>i am Header</Text>
+                {showBack && <Text onPress={onBackPress} style={styles.backText}>{'back'}</Text>}
+                <Text style={styles.text}>{headerText}</Text>
+                {showBack && <View style={styles.backText}></View>}
             </View>
         )
     }
@@ -30,10 +33,19 @@ const styles = StyleSheet.create({
            },
         }),
         justifyContent:'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection:'row'
     },
     text:{
+        flex:1,
+        textAlign:'center',
         fontSize: StyleConfig.countFontSize(24),
         color:'#fff'
+    },
+    backText:{
+        width:StyleConfig.responsiveWidth(15),
+        fontSize: StyleConfig.countFontSize(16),
+        color:'#fff',
+        textAlign:'center',
     }
 })
