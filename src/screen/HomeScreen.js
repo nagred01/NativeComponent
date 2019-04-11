@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Platform, NativeModules, Dimensions, Text, ScrollView,PixelRatio} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Text, ScrollView} from 'react-native';
 import NativeText from '../component/NativeText'
 import NativeTextBox from '../component/NativeTextBox'
 import NativeImage from '../component/NativeImage'
 import NativeDataList from '../component/NativeDataList'
 import NativeHeader from '../component/NativeHeader';
-
+import { Actions } from 'react-native-router-flux' ;
 import StyleConfig from '../assets/StyleConfig/index'
 
 type Props = {};
@@ -76,7 +76,6 @@ export default class App extends Component<Props> {
 
     }
 
-
     render() {
         return (
             <View style={styles.container}>
@@ -101,9 +100,15 @@ export default class App extends Component<Props> {
                     <View style={styles.viewStyle2}>
                         <Text style={styles.textStyle}>Responsive</Text>
                     </View>
-                    <View style={styles.viewStyle3}>
+                    <View style={styles.viewStyle3} onPress={()=> alert('test')}>
                         <Text style={styles.textStyle}>Percentage</Text>
                     </View>
+
+                    <TouchableOpacity style={{backgroundColor:'grey', padding:StyleConfig.countFontSize(8)}}
+                                      onPress={()=> Actions.push('list_data')}>
+                        <Text style={styles.textStyle}>DataList Screen</Text>
+                    </TouchableOpacity>
+
 
                     <NativeDataList
                         itemsSource={this.state.dataListItems}
