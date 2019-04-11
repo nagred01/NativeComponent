@@ -11,7 +11,7 @@ export default class NativeHeader extends React.Component {
         const {showBack, headerText, onBackPress} = this.props
         return(
             <View style={styles.header}>
-                {showBack && <Text onPress={onBackPress} style={styles.backText}>{'back'}</Text>}
+                {showBack && <Text onPress={onBackPress} style={styles.backText}>{'Back'}</Text>}
                 <Text style={styles.text}>{headerText}</Text>
                 {showBack && <View style={styles.backText}></View>}
             </View>

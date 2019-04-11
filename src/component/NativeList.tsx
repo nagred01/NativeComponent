@@ -79,7 +79,7 @@ export default class NativeList extends React.Component<ListProps> {
                         </TouchableOpacity>
                         {item.expanded === true && item.hasOwnProperty('items') && item.items.map((subItem, subIndex) => (
                             <TouchableOpacity key={subIndex+''+ subIndex} onPress={() => this.handleClick(subItem)}
-                                              style={[subItemParent,{backgroundColor: subItem === selectedItem ? '#dcdcfc' : '#fff' }]} key={subIndex + '' + subIndex}>
+                                              style={[subItemParent,{backgroundColor: subItem === selectedItem && StyleConfig.isTab ? '#dcdcfc' : '#fff' }]} key={subIndex + '' + subIndex}>
                                 <View style={{flexDirection: 'row'}}>
                                     <Text style={titleThemeText}>{subItem.name}</Text>
                                     <View style={{flex: 1}}/>
