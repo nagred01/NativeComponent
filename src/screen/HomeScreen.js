@@ -5,6 +5,7 @@ import NativeTextBox from '../component/NativeTextBox'
 import NativeImage from '../component/NativeImage'
 import NativeDataList from '../component/NativeDataList'
 import NativeHeader from '../component/NativeHeader';
+import NativeDatePicker from '../component/NativeDatePicker';
 import { Actions } from 'react-native-router-flux' ;
 import StyleConfig from '../assets/StyleConfig/index'
 const LIST_DATA = require('../helper/ListDataJson');
@@ -51,6 +52,20 @@ export default class App extends Component<Props> {
                                       onPress={()=> Actions.push('list_data')}>
                         <Text style={styles.textStyle}>DataList Screen</Text>
                     </TouchableOpacity>
+                    <NativeDatePicker
+                        style={styles.dateContainer}
+                        renderDate={({ year, month, day, date }) => {
+                            if (!date) {
+                                return <Text style={ styles.text}>Date of birth</Text>
+                            }
+
+                            const dateStr = `${day}-${month}-${year}`
+                            return <Text style={styles.text}>{dateStr}</Text>
+                        }}
+
+                    />
+
+
                     <NativeDataList
                         itemsSource={this.state.dataListItems}
                         onClick={(item) => alert(JSON.stringify(item))}
@@ -98,6 +113,23 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
-    textStyle: {fontSize: StyleConfig.countFontSize(20), color: 'white'}
+    textStyle: {fontSize: StyleConfig.countFontSize(20), color: 'white'},
+    dateContainer: {
+        backgroundColor: '#fff',
+        borderBottomColor: '#ddd',
+        borderBottomWidth: 1,
+        justifyContent: 'center',
+        borderRadius: 2,
+        height: 50
+    },
+    placeholderText: {
+        color: '#ddd'
+    },
+    text: {
+        width: '100%',
+        paddingHorizontal: StyleConfig.countFontSize(12),
+        paddingVertical: StyleConfig.countFontSize(4),
+        fontSize: StyleConfig.countFontSize(15),
 
+    }
 });
