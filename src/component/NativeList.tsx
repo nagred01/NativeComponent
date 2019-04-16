@@ -3,7 +3,6 @@ import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import NativeControl from "../Interfaces/NativeControl";
 import NativeItemDetail from './NativeItemDetail';
 import StyleConfig from '../assets/StyleConfig/index';
-import {Actions} from 'react-native-router-flux';
 interface ListProps extends NativeControl {
     groupKey: string,
     itemKey: any,
@@ -16,11 +15,6 @@ interface ListProps extends NativeControl {
     expandable: boolean,
     noDataText: string,
     emptyListClassName: string,
-    itemStyle: {},
-    subItemStyle: {},
-    titleText: {},
-    titleBlackText: {},
-    detailText: {}
 }
 
 export default class NativeList extends React.Component<ListProps> {
@@ -38,11 +32,12 @@ export default class NativeList extends React.Component<ListProps> {
         }
     }
 
-    handleClick = (item): void => {
+    handleClick = (item) => {
+        console.log(this.props)
         if(StyleConfig.isTab){
             this.setState({selectedItem:item})
         } else {
-            Actions.push('item_detail',{item})
+            this.props.navigation.navigate('ItemDetail',{item} )
         }
     }
 

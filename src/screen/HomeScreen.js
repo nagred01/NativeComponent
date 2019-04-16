@@ -6,7 +6,6 @@ import NativeImage from '../component/NativeImage'
 import NativeDataList from '../component/NativeDataList'
 import NativeHeader from '../component/NativeHeader';
 import NativeDatePicker from '../component/NativeDatePicker';
-import { Actions } from 'react-native-router-flux' ;
 import StyleConfig from '../assets/StyleConfig/index'
 const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
@@ -49,7 +48,7 @@ export default class App extends Component<Props> {
                     </View>
 
                     <TouchableOpacity style={{backgroundColor:'grey', padding:StyleConfig.countFontSize(8)}}
-                                      onPress={()=> Actions.push('list_data')}>
+                                      onPress={()=> {this.props.navigation.navigate('ListData')}}>
                         <Text style={styles.textStyle}>DataList Screen</Text>
                     </TouchableOpacity>
                     <NativeDatePicker

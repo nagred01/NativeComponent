@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {View} from 'react-native';
 import NativeHeader from '../component/NativeHeader';
 import NativeList from '../component/NativeList';
-import { Actions } from 'react-native-router-flux' ;
-import StyleConfig from "../assets/StyleConfig";
 const LIST_DATA = require('../helper/ListDataJson');
 export default class ListDataScreen extends Component{
     constructor(props) {
@@ -16,10 +14,10 @@ export default class ListDataScreen extends Component{
     render(){
         return(
             <View style={{flex:1, backgroundColor:'white', justifyContent:'center'}}>
-                <NativeHeader showBack onBackPress={()=> Actions.pop()}  headerText={'List Data'}/>
+                <NativeHeader showBack onBackPress={()=> {this.props.navigation.navigate('Home')}}  headerText={'List Data'}/>
                 <NativeList
+                    navigation={this.props.navigation}
                     itemsSource={this.state.dataListItems}
-                    onClick={(item) => alert(JSON.stringify(item))}
                 />
             </View>
 

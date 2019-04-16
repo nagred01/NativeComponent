@@ -1,12 +1,23 @@
-
-import React, {Component} from 'react';
+import React from 'react';
+import {createAppContainer, createStackNavigator} from 'react-navigation';
 import HomeScreen from '../screen/HomeScreen'
-import AppRouter from './AppRouter'
+import ListDataScreen from '../screen/ListDataScreen';
+import ItemDetailScreen from '../screen/ItemDetailScreen';
+
 type Props = {};
-export default class App extends Component<Props> {
-    render() {
-        return (
-            <AppRouter />
-        );
+const MainNavigator = createStackNavigator({
+    Home: {screen: HomeScreen},
+    ListData: {screen: ListDataScreen},
+    ItemDetail:{ screen: ItemDetailScreen}
+
+}, {
+    headerMode: 'none',
+    navigationOptions: {
+        headerVisible: false,
     }
-}
+});
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
+
