@@ -6,7 +6,9 @@ import NativeImage from '../component/NativeImage'
 import NativeDataList from '../component/NativeDataList'
 import NativeHeader from '../component/NativeHeader';
 import NativeDatePicker from '../component/NativeDatePicker';
-import StyleConfig from '../assets/StyleConfig/index'
+import NativeDateTimePicker from '../component/NativeDateTimePicker';
+import StyleConfig from '../assets/StyleConfig/index';
+import AppImages from '../assets/icons'
 const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
 export default class App extends Component<Props> {
@@ -14,7 +16,11 @@ export default class App extends Component<Props> {
     constructor(props) {
         super(props);
         this.state = {
-            dataListItems:LIST_DATA
+            dataListItems:LIST_DATA,
+            date: '',
+            time: '20:00',
+            datetime: '2016-05-05 20:00',
+            datetime1: '2016-05-05 20:00'
         }
 
     }
@@ -71,6 +77,60 @@ export default class App extends Component<Props> {
                     />
 
 
+                    <NativeDateTimePicker
+                        style={{width: StyleConfig.responsiveWidth(90), marginTop: StyleConfig.countFontSize(10)}}
+                        date={this.state.date}
+                        mode="date"
+                        placeholder="placeholder"
+                        format="YYYY-MM-DD"
+                        minDate="2016-05-01"
+                        maxDate="2016-06-01"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        iconSource={AppImages.ic_google_calendar}
+                        onDateChange={(date) => {this.setState({date: date});}}
+                    />
+                    <NativeDateTimePicker
+                        style={{width: StyleConfig.responsiveWidth(90), marginTop: StyleConfig.countFontSize(10)}}
+                        date={this.state.time}
+                        mode="time"
+                        format="HH:mm"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        minuteInterval={10}
+                        onDateChange={(time) => {this.setState({time: time});}}
+                    />
+                    <NativeDateTimePicker
+                        style={{width: StyleConfig.responsiveWidth(90), marginTop: StyleConfig.countFontSize(10)}}
+                        date={this.state.datetime}
+                        mode="datetime"
+                        format="YYYY-MM-DD HH:mm"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        showIcon={false}
+                        onDateChange={(datetime) => {this.setState({datetime: datetime});}}
+                    />
+                    <NativeDateTimePicker
+                        style={{width: StyleConfig.responsiveWidth(90), marginTop: StyleConfig.countFontSize(10)}}
+                        date={this.state.datetime1}
+                        mode="datetime"
+                        format="YYYY-MM-DD HH:mm"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        customStyles={{
+                            dateIcon: {
+                                position: 'absolute',
+                                left: 0,
+                                top: 4,
+                                marginLeft: 0
+                            },
+                            dateInput: {
+                                marginLeft: 36
+                            }
+                        }}
+                        minuteInterval={10}
+                        onDateChange={(datetime) => {this.setState({datetime1: datetime});}}
+                    />
                 </ScrollView>
             </View>
         );
