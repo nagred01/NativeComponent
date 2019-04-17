@@ -9,6 +9,7 @@ import NativeDatePicker from '../component/NativeDatePicker';
 import NativeDateTimePicker from '../component/NativeDateTimePicker';
 import StyleConfig from '../assets/StyleConfig/index';
 import AppImages from '../assets/icons'
+import TestGestureHandler from "./TestGestureHandler";
 const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
 export default class App extends Component<Props> {
@@ -131,6 +132,7 @@ export default class App extends Component<Props> {
                         minuteInterval={10}
                         onDateChange={(datetime) => {this.setState({datetime1: datetime});}}
                     />
+                    <Text style={styles.text} onPress={()=> { this.props.navigation.navigate('TestGestureHandler')}}>Test</Text>
                 </ScrollView>
             </View>
         );
