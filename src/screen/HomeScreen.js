@@ -55,10 +55,10 @@ export default class App extends Component<Props> {
                         style={styles.dateContainer}
                         renderDate={({ year, month, day, date }) => {
                             if (!date) {
-                                return <Text style={ styles.text}>Date of birth</Text>
+                                return <Text style={ styles.text}>Select Date</Text>
                             }
 
-                            const dateStr = `${day}-${month}-${year}`
+                            const dateStr = `${month}-${day}-${year}`
                             return <Text style={styles.text}>{dateStr}</Text>
                         }}
 

@@ -28,17 +28,23 @@ export default class NativeList extends React.Component<ListProps> {
         }
         this.state = {
             data,
-            selectedItem:data[0].items[0]
+            selectedItem:null
         }
     }
 
     handleClick = (item) => {
-        console.log(this.props)
-        if(StyleConfig.isTab){
+        let {selectedItem} = this.state ;
+        if(selectedItem === item){
+            this.setState({selectedItem:null})
+        }else{
             this.setState({selectedItem:item})
-        } else {
-            this.props.navigation.navigate('ItemDetail',{item} )
         }
+
+        // if(StyleConfig.isTab){
+        //     this.setState({selectedItem:item})
+        // } else {
+        //     this.props.navigation.navigate('ItemDetail',{item} )
+        // }
     }
 
     _onExpand = (item, ind) => {
@@ -86,6 +92,10 @@ export default class NativeList extends React.Component<ListProps> {
                                     <Text
                                         style={detailText}>{subItem.availableType === '' ? subItem.outStanding : subItem.availableType + ' Balance'}</Text>
                                 </View>
+                                <View style={{flexDirection: 'row', marginTop: 4}}>
+
+                                {StyleConfig.isPhone && subItem === selectedItem && <NativeItemDetail itemDetail={this.state.selectedItem} />}
+                                </View>
                             </TouchableOpacity>
                         ))}
                     </View>
@@ -97,7 +107,7 @@ export default class NativeList extends React.Component<ListProps> {
 
     renderTabView = () => {
         return (<View style={{flex: 1, flexDirection: 'row'}}>
-            <View style={{width: StyleConfig.responsiveWidth(40), borderRightWidth:1, borderColor:'#ddd'}}>
+            <View style={{width: StyleConfig.responsiveWidth(this.state.selectedItem == null ? 100 : 40), borderRightWidth:1, borderColor:'#ddd'}}>
                 {this.renderList()}
             </View>
             <View style={{width: StyleConfig.responsiveWidth(60)}}>
