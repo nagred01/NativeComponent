@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, TouchableOpacity, Text, ScrollView} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Text, ScrollView,Picker} from 'react-native';
 import NativeText from '../component/NativeText'
 import NativeTextBox from '../component/NativeTextBox'
 import NativeImage from '../component/NativeImage'
@@ -10,6 +10,7 @@ import NativeDateTimePicker from '../component/NativeDateTimePicker';
 import StyleConfig from '../assets/StyleConfig/index';
 import AppImages from '../assets/icons'
 import TestGestureHandler from "./TestGestureHandler";
+import {Select, Option, OptionList} from '../lib'
 const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
 export default class App extends Component<Props> {
@@ -21,11 +22,22 @@ export default class App extends Component<Props> {
             date: '',
             time: '20:00',
             datetime: '2016-05-05 20:00',
-            datetime1: '2016-05-05 20:00'
+            datetime1: '2016-05-05 20:00',
+            canada:''
         }
 
     }
 
+
+    _getOptionList() {
+        return this.refs['OPTIONLIST'];
+    }
+    _canada(province) {
+        this.setState({
+            ...this.state,
+            canada: province
+        });
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -43,6 +55,22 @@ export default class App extends Component<Props> {
                         imageUrl={'https://images.all-free-download.com/images/graphiclarge/sunrise_515561.jpg'}
                         imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
                     />
+<View style={{height:70}}>
+                    <Select
+                        width={250}
+                        ref="SELECT1"
+                        optionListRef={this._getOptionList.bind(this)}
+                        defaultValue="Select a Province in Canada ..."
+                        onSelect={this._canada.bind(this)}>
+                        <Option value={'1'}>{'Super Saving1 : x457-00\nAvailable : $3.27'}</Option>
+                        <Option value={'2'}>{'Super Saving2 : x457-00\nAvailable : $3.27'}</Option>
+                        <Option value={'3'}>{'Super Saving3 : x457-00\nAvailable : $3.27'}</Option>
+                        <Option value={'4'}>{'Super Saving4 : x457-00\nAvailable : $3.27'}</Option>
+
+                    </Select>
+
+                    <OptionList ref="OPTIONLIST" style={{position:'absolute'}}/>
+</View>
                     <View style={styles.viewStyle}>
                         <Text style={styles.textStyle}>viewStyle</Text>
                     </View>
@@ -83,9 +111,9 @@ export default class App extends Component<Props> {
                         date={this.state.date}
                         mode="date"
                         placeholder="placeholder"
-                        format="YYYY-MM-DD"
-                        minDate="2016-05-01"
-                        maxDate="2016-06-01"
+                        format="MM-DD-YYYY"
+                        minDate="05-01-2019"
+                        maxDate="05-01-2025"
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
                         iconSource={AppImages.ic_google_calendar}

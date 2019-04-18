@@ -129,9 +129,6 @@ export default class NativeList extends React.Component<ListProps> {
                 </Animated.View>
 
             </PanGestureHandler>
-            {/*<View style={{width: StyleConfig.responsiveWidth(this.state.selectedItem == null ? 100 : 40), borderRightWidth:1, borderColor:'#ddd'}}>*/}
-                {/**/}
-            {/*</View>*/}
             <Animated.View style={{flex:1}}>
                 <NativeItemDetail itemDetail={this.state.selectedItem} />
             </Animated.View>
