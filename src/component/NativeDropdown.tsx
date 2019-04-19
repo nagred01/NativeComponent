@@ -30,7 +30,7 @@ export default class NativeText extends React.PureComponent<DropdownProps, TextS
     render(): React.ReactNode {
         const {selectedItem, itemsSource} =this.props ;
 
-        let modelHeight = itemHeight * (itemsSource.length > 8 ? 8 : itemsSource.length)
+        let modelHeight = itemHeight * (itemsSource.length > 8 ? 8 : itemsSource.length+1)
 
         return (
             <View>
@@ -78,9 +78,10 @@ export default class NativeText extends React.PureComponent<DropdownProps, TextS
                             <View style={{backgroundColor: 'white', }}>
                                 {itemsSource.map((item, ind) => {
                                     let isSelected = JSON.stringify(selectedItem)==JSON.stringify(item)
+                                    let isLastItem = itemsSource.length === ind+1
                                         return (
                                             <TouchableOpacity
-                                                style={[styles.itemParent, {backgroundColor:isSelected ? 'lightblue':'white'}]}
+                                                style={[styles.itemParent, {backgroundColor:isSelected ? 'lightblue':'white', borderBottomWidth:isLastItem? 0 : 1}]}
                                                 onPress={() => {
                                                     this.props.onSelectItem(item)
                                                     this.setState({modalOpen: false})
@@ -109,7 +110,6 @@ const styles = StyleSheet.create({
       height:itemHeight,
       paddingVertical: StyleConfig.countFontSize(8),
       paddingHorizontal: StyleConfig.countFontSize(12),
-      borderBottomWidth:1,
       borderColor: '#aaa'
     },
     titleText: {
