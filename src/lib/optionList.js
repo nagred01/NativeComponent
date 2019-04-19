@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     left: 0,
     height: '100%',
     width: window.width,
-      zIndex:99
+    zIndex:99
   }
 });
 

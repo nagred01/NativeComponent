@@ -4,6 +4,7 @@ import NativeText from '../component/NativeText'
 import NativeTextBox from '../component/NativeTextBox'
 import NativeImage from '../component/NativeImage'
 import NativeDataList from '../component/NativeDataList'
+import NativeDropdown from '../component/NativeDropdown'
 import NativeHeader from '../component/NativeHeader';
 import NativeDatePicker from '../component/NativeDatePicker';
 import NativeDateTimePicker from '../component/NativeDateTimePicker';
@@ -23,7 +24,8 @@ export default class App extends Component<Props> {
             time: '20:00',
             datetime: '2016-05-05 20:00',
             datetime1: '2016-05-05 20:00',
-            canada:''
+            canada:'',
+            selectedItem:undefined
         }
 
     }
@@ -39,6 +41,15 @@ export default class App extends Component<Props> {
         });
     }
     render() {
+        const { dataListItems } = this.state
+        let accItems = [];
+        for(let ind in dataListItems){
+            if(dataListItems[ind].items.length > 0) {
+                for (let subInd in dataListItems[ind].items) {
+                    accItems.push(dataListItems[ind].items[subInd])
+                }
+            }
+        }
         return (
             <View style={styles.container}>
                 <NativeHeader headerText={'Header'}/>
@@ -55,17 +66,25 @@ export default class App extends Component<Props> {
                         imageUrl={'https://images.all-free-download.com/images/graphiclarge/sunrise_515561.jpg'}
                         imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
                     />
+
+                    <NativeDropdown
+                        promptText={'Select Account'}
+                        itemsSource={accItems}
+                        selectedItem={this.state.selectedItem}
+                        onSelectItem={(item)=>{ this.setState({selectedItem:item})}}
+                    />
 <View style={{height:70}}>
+
                     <Select
                         width={250}
                         ref="SELECT1"
                         optionListRef={this._getOptionList.bind(this)}
                         defaultValue="Select a Province in Canada ..."
                         onSelect={this._canada.bind(this)}>
-                        <Option value={'1'}>{'Super Saving1 : x457-00\nAvailable : $3.27'}</Option>
-                        <Option value={'2'}>{'Super Saving2 : x457-00\nAvailable : $3.27'}</Option>
-                        <Option value={'3'}>{'Super Saving3 : x457-00\nAvailable : $3.27'}</Option>
-                        <Option value={'4'}>{'Super Saving4 : x457-00\nAvailable : $3.27'}</Option>
+
+                        {accItems.map((item,index)=>
+                            <Option value={index}>{item.name+' : '+ item.xType +'\nAvailable : '+item.balance}</Option>
+                        )}
 
                     </Select>
 
