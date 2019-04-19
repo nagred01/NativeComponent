@@ -11,7 +11,6 @@ import NativeDateTimePicker from '../component/NativeDateTimePicker';
 import StyleConfig from '../assets/StyleConfig/index';
 import AppImages from '../assets/icons'
 import TestGestureHandler from "./TestGestureHandler";
-import {Select, Option, OptionList} from '../lib'
 const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
 export default class App extends Component<Props> {
@@ -24,21 +23,9 @@ export default class App extends Component<Props> {
             time: '20:00',
             datetime: '2016-05-05 20:00',
             datetime1: '2016-05-05 20:00',
-            canada:'',
             selectedItem:undefined
         }
 
-    }
-
-
-    _getOptionList() {
-        return this.refs['OPTIONLIST'];
-    }
-    _canada(province) {
-        this.setState({
-            ...this.state,
-            canada: province
-        });
     }
     render() {
         const { dataListItems } = this.state
@@ -46,7 +33,9 @@ export default class App extends Component<Props> {
         for(let ind in dataListItems){
             if(dataListItems[ind].items.length > 0) {
                 for (let subInd in dataListItems[ind].items) {
-                    accItems.push(dataListItems[ind].items[subInd])
+                    accItems.push({...dataListItems[ind].items[subInd], id:1})
+                    // accItems.push({...dataListItems[ind].items[subInd], id:2})
+                    // accItems.push({...dataListItems[ind].items[subInd], id:3})
                 }
             }
         }
@@ -73,23 +62,6 @@ export default class App extends Component<Props> {
                         selectedItem={this.state.selectedItem}
                         onSelectItem={(item)=>{ this.setState({selectedItem:item})}}
                     />
-<View style={{height:70}}>
-
-                    <Select
-                        width={250}
-                        ref="SELECT1"
-                        optionListRef={this._getOptionList.bind(this)}
-                        defaultValue="Select a Province in Canada ..."
-                        onSelect={this._canada.bind(this)}>
-
-                        {accItems.map((item,index)=>
-                            <Option value={index}>{item.name+' : '+ item.xType +'\nAvailable : '+item.balance}</Option>
-                        )}
-
-                    </Select>
-
-                    <OptionList ref="OPTIONLIST" style={{position:'absolute'}}/>
-</View>
                     <View style={styles.viewStyle}>
                         <Text style={styles.textStyle}>viewStyle</Text>
                     </View>

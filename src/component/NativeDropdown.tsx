@@ -4,7 +4,7 @@ import {Text, StyleSheet, Modal,ScrollView, View, TouchableOpacity, Image} from 
 import ReactNative from 'react-native';
 import AppImages from '../assets/icons';
 import StyleConfig from '../assets/StyleConfig/index'
-
+const itemHeight=StyleConfig.countFontSize(60) ;
 export interface DropdownProps extends NativeField {
     itemsSource: Array<any>,
     onSelectItem: (item) => void,
@@ -28,7 +28,10 @@ export default class NativeText extends React.PureComponent<DropdownProps, TextS
     };
 
     render(): React.ReactNode {
-        const {selectedItem} =this.props
+        const {selectedItem, itemsSource} =this.props ;
+
+        let modelHeight = itemHeight * (itemsSource.length > 8 ? 8 : itemsSource.length)
+
         return (
             <View>
                 <TouchableOpacity
@@ -36,7 +39,8 @@ export default class NativeText extends React.PureComponent<DropdownProps, TextS
                         flexDirection: 'row',
                         borderColor: 'ddd',
                         borderWidth: 0.5,
-                        padding: 8,
+                        padding: StyleConfig.countFontSize(8),
+                        marginVertical: StyleConfig.countFontSize(4),
                         alignItems: 'center'
                     }}
                     onPress={() => {
@@ -56,25 +60,27 @@ export default class NativeText extends React.PureComponent<DropdownProps, TextS
                 </TouchableOpacity>
                 <View style={{marginTop: 22}}>
                     <Modal
-                        animationType="slide"
+                        animationType="none" //slide  fade  none
                         transparent={true}
                         visible={this.state.modalOpen}
-
-                        onRequestClose={() => {
-                            Alert.alert('Modal has been closed.');
-                        }}>
-                        <View style={{ justifyContent:'center',  height: StyleConfig.height,backgroundColor: 'rgba(0,0,0,0)'}}>
+                        >
+                        <View style={{ justifyContent:'center',
+                            paddingVertical: (StyleConfig.height-modelHeight)/2,
+                            backgroundColor: 'rgba(0,0,0,0.25)'}}>
                         <ScrollView style={{
-                            height: StyleConfig.height-StyleConfig.countFontSize(320),
+                            height: modelHeight,
                             backgroundColor:'white',
                             borderWidth:1,
+                            borderRadius:StyleConfig.countFontSize(8),
                             borderColor:'#ccc',
-                            marginVertical: StyleConfig.countFontSize(160), marginHorizontal: StyleConfig.countFontSize(24),}}>
+                            marginHorizontal: StyleConfig.countFontSize(24),
+                        }}>
                             <View style={{backgroundColor: 'white', }}>
-                                {this.props.itemsSource.map((item, ind) => {
+                                {itemsSource.map((item, ind) => {
+                                    let isSelected = JSON.stringify(selectedItem)==JSON.stringify(item)
                                         return (
                                             <TouchableOpacity
-                                                style={[styles.itemParent, {backgroundColor:selectedItem==item ? 'lightblue':'white'}]}
+                                                style={[styles.itemParent, {backgroundColor:isSelected ? 'lightblue':'white'}]}
                                                 onPress={() => {
                                                     this.props.onSelectItem(item)
                                                     this.setState({modalOpen: false})
@@ -100,45 +106,19 @@ export default class NativeText extends React.PureComponent<DropdownProps, TextS
 
 const styles = StyleSheet.create({
     itemParent:{
+      height:itemHeight,
       paddingVertical: StyleConfig.countFontSize(8),
       paddingHorizontal: StyleConfig.countFontSize(12),
-      borderBottomWidth:0.5,
-        borderColor: '#aaa'
-    },
-    labelText: {
-        fontSize: StyleConfig.countFontSize(24),
-        color: 'black',
-        fontWeight: 'bold',
-        //fontFamily: 'Cochin',
-        //fontStyle: 'normal'
+      borderBottomWidth:1,
+      borderColor: '#aaa'
     },
     titleText: {
         fontSize: StyleConfig.countFontSize(18),
-        color: 'black',
-        //fontFamily: 'Cochin',
-        //fontStyle: 'normal'
+        color: '#222'
     },
     subTitleText: {
         fontSize: StyleConfig.countFontSize(18),
-        color: 'darkgray',
-        fontWeight: 'normal',
-        //fontFamily: 'Cochin',
-        //fontStyle: 'normal'
-    },
-    primaryText: {
-        fontSize: StyleConfig.countFontSize(15),
-        color: '#87cefa',
-        fontWeight: 'normal',
-        padding: StyleConfig.countFontSize(12)
-        //fontFamily: 'Cochin',
-        //fontStyle: 'normal'
-    },
-    secondaryText: {
-        fontSize: StyleConfig.countFontSize(12),
-        color: 'black',
-        fontWeight: 'normal',
-        //fontFamily: 'Cochin',
-        //fontStyle: 'normal'
+        color: '#333'
     }
 })
 
