@@ -1,8 +1,10 @@
 [
   {
     "acType": "Checking",
+    "groupId":11,
     "items": [
       {
+        "id":123,
         "name": "Free Checking",
         "type": "Current",
         "balance": "$2,341.39",
@@ -16,8 +18,10 @@
   },
   {
     "acType": "Saving",
+    "groupId":12,
     "items": [
       {
+        "id":124,
         "name": "Super Saving",
         "type": "Current",
         "balance": "$3.27",
@@ -30,8 +34,10 @@
   },
   {
     "acType": "Loan",
+    "groupId":13,
     "items": [
       {
+        "id":125,
         "name": "Home morgage",
         "type": "",
         "balance": "$183,399.01",
@@ -41,6 +47,7 @@
         "outStanding": "Outstanding Balance"
       },
       {
+        "id":126,
         "name": "2015 Tesla Loan",
         "type": "",
         "balance": "$2,466.34",
@@ -53,6 +60,7 @@
   },
   {
     "acType": "Test",
+    "groupId":14,
     "items": []
   }
 ]
