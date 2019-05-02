@@ -39,7 +39,9 @@ export default class App extends Component<Props> {
             }
         }
         return (
-            <View style={styles.container}>
+            <View style={styles.container}
+                   onLayout={(obj)=>console.log(obj.nativeEvent.layout)}
+            >
                 <NativeHeader headerText={'Header'}/>
                 <ScrollView style={styles.content}>
                     <NativeText value={'this is native text'}/>

@@ -142,7 +142,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
             ? this.groupBy(this.props.itemsSource, this.props.groupKey)
 
             : this.props.itemsSource;
-
+        console.log(JSON.stringify(groupedItems))
 
 
         const children = this.props.children as (item: any) => React.ReactNode;

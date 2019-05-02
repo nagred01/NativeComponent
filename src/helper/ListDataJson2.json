@@ -1,0 +1,42 @@
+[
+  {
+    "acType": "Checking",
+    "groupId":11,
+    "id":123,
+    "name": "Free Checking",
+    "type": "Current",
+    "balance": "$2,341.39",
+    "LBalance": "$2,341.39",
+    "availableType": "Available",
+    "xType": "x456-90",
+    "iconType": "star",
+    "outStanding": ""
+  },
+  {
+    "acType": "Checking",
+    "groupId":11,
+    "id":124,
+    "name": "Free Checking 2",
+    "type": "Current",
+    "balance": "$2,341.39",
+    "LBalance": "$2,341.39",
+    "availableType": "Available",
+    "xType": "x456-99",
+    "iconType": "star",
+    "outStanding": ""
+  },
+  {
+    "acType": "Checking 2",
+    "groupId":12,
+    "id":125,
+    "name": "Free Checking 2",
+    "type": "Current",
+    "balance": "$2,341.39",
+    "LBalance": "$2,341.39",
+    "availableType": "Available",
+    "xType": "x456-99",
+    "iconType": "star",
+    "outStanding": ""
+  }
+
+]

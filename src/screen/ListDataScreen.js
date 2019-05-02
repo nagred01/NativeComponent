@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import NativeHeader from '../component/NativeHeader';
 import NativeListWithGesture from '../component/NativeListWithGesture';
 import NativeDataList2 from '../component/NativeDataList2';
-const LIST_DATA = require('../helper/ListDataJson');
+const LIST_DATA = require('../helper/ListDataJson2');
 export default class ListDataScreen extends Component{
     constructor(props) {
         super(props);
@@ -23,12 +23,45 @@ export default class ListDataScreen extends Component{
 
                 <NativeDataList2
                     navigation={this.props.navigation}
-                    itemsSource={'items'}
+                    itemsSource={this.state.dataListItems}
                     groupSource={this.state.dataListItems}
-                    itemKey={"id"}
+                    itemKey={(index) => alert('press '+index)}
+                    itemId={"id"}
                     groupId={'groupId'}
+                    groupKey={'groupId'}
                     groupText={"acType"}
+                    children={(subItem)=>{
+                        console.log({subItem})
+                        return(
+                            <View>
+                            <View style={{ flexDirection: 'row' }}>
+                                <Text style={{
+                                    fontSize: 20,
+                                    color: '#4B759B'
+                                }}>{subItem.name}</Text>
+                                <View style={{ flex: 1 }} />
+                                <Text style={{
+                                    fontSize: 20,
+                                    color: 'black'
+                                }}>{subItem.balance}</Text>
+                            </View>
+                            <View style={{ flexDirection: 'row', marginTop: 2 }} >
+                            <Text style={{
+                                fontSize: 14,
+                                color: 'black'
+                                }}>{subItem.xType}</Text>
+                            <View style={{ flex: 1 }} />
+                            <Text style={{
+                            fontSize: 14,
+                            color: 'black'
+                                }}>{subItem.availableType === ''
+                            ? subItem.outStanding
+                            : subItem.availableType + ' Balance'}</Text>
+                        </View>
+                            </View>
 
+                   )
+                    }}
                 />
 
             </View>
