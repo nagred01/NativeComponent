@@ -142,7 +142,8 @@ export default class NativeDataList extends React.Component<DataListProps> {
             ? this.groupBy(this.props.itemsSource, this.props.groupKey)
 
             : this.props.itemsSource;
-        console.log(JSON.stringify(groupedItems))
+
+        console.log('--------------------------------------------\n',JSON.stringify(groupedItems), '\n--------------------------------------------')
 
 
         const children = this.props.children as (item: any) => React.ReactNode;
@@ -162,13 +163,13 @@ export default class NativeDataList extends React.Component<DataListProps> {
                                               let groupText = group[this.props.groupText];
                                               return (
                                                   groupedItems[groupId] && groupedItems[groupId].length !== 0 &&
-                                                    <View key={groupId} style={{}}>
+                                                    <View key={groupId} style={{backgroundColor:'red'}}>
                                                        <View style={{ paddingTop: 0, paddingRight: 24, paddingBottom: 0, paddingLeft: 24, backgroundColor: '#F5F5F5', borderTopWidth: 1, borderTopColor: '#d7d7d7', borderBottomWidth: 1, borderBottomColor: "#d7d7d7", fontSize: 20.8, lineHeight: 28.8 }}>
                                                     <Text>{groupText}</Text>
                                                   </View>
                                                 { groupedItems[groupId].map((item: any) => {
                                                     return (
-                                                      <TouchableOpacity key={this.props.itemKey(item)}
+                                                      <TouchableOpacity
                                                                         onPress={() => this.listItemClick(item,this.props.itemKey(item))}
                                                                         style={{ paddingTop: 6, paddingRight: 24, paddingBottom: 6, paddingLeft: 24, borderBottomWidth: 1, borderBottomColor: "#d7d7d7" }}>
                                                           {children(item)}

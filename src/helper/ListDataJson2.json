@@ -1,7 +1,9 @@
 [
+
   {
     "acType": "Checking",
     "groupId":11,
+    "groupKey":1,
     "id":123,
     "name": "Free Checking",
     "type": "Current",
@@ -15,6 +17,7 @@
   {
     "acType": "Checking",
     "groupId":11,
+    "groupKey":2,
     "id":124,
     "name": "Free Checking 2",
     "type": "Current",
@@ -28,6 +31,7 @@
   {
     "acType": "Checking 2",
     "groupId":12,
+    "groupKey":2,
     "id":125,
     "name": "Free Checking 2",
     "type": "Current",
