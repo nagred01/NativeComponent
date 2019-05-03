@@ -95,13 +95,21 @@ export default class NativeDataList extends React.Component<DataListProps> {
 
 
     groupBy = (objectArray: any, property: string) => {
+
         return objectArray.reduce((acc: any, obj: any) => {
+
             var key = obj[property];
+
             if (!acc[key]) {
+
                 acc[key] = [];
+
             }
+
             acc[key].push(obj);
+
             return acc;
+
         }, {});
 
     }
@@ -136,14 +144,17 @@ export default class NativeDataList extends React.Component<DataListProps> {
 
     }
 
+
     render() {
+
+        console.log('GroupSources', this.props.groupsSource)
+
         let groupedItems = this.props.groupsSource
 
             ? this.groupBy(this.props.itemsSource, this.props.groupKey)
 
             : this.props.itemsSource;
 
-        console.log('--------------------------------------------\n',JSON.stringify(groupedItems), '\n--------------------------------------------')
 
 
         const children = this.props.children as (item: any) => React.ReactNode;
@@ -155,21 +166,28 @@ export default class NativeDataList extends React.Component<DataListProps> {
             <FlatList data={this.props.itemsSource}
 
                       renderItem={({ item, index }) => {
+
                           return (
+
                               <View>
+
                                   {
-                                      this.props.groupsSource ? this.props.groupsSource.map((group: any) => {
+                                      this.props.groupsSource
+                                          ?this.props.groupsSource.map((group: any) => {
+
                                               let groupId = group[this.props.groupId];
                                               let groupText = group[this.props.groupText];
+                                              console.log('GroupsSource', group,'\n', groupId, groupText)
                                               return (
                                                   groupedItems[groupId] && groupedItems[groupId].length !== 0 &&
-                                                    <View key={groupId} style={{backgroundColor:'red'}}>
-                                                       <View style={{ paddingTop: 0, paddingRight: 24, paddingBottom: 0, paddingLeft: 24, backgroundColor: '#F5F5F5', borderTopWidth: 1, borderTopColor: '#d7d7d7', borderBottomWidth: 1, borderBottomColor: "#d7d7d7", fontSize: 20.8, lineHeight: 28.8 }}>
-                                                    <Text>{groupText}</Text>
+                                                  <View key={groupId} style={{}}>
+                                                      <View style={{ paddingTop: 0, paddingRight: 24, paddingBottom: 0, paddingLeft: 24, backgroundColor: '#F5F5F5', borderTopWidth: 1, borderTopColor: '#d7d7d7', borderBottomWidth: 1, borderBottomColor: "#d7d7d7", fontSize: 20.8, lineHeight: 28.8 }}>
+                                                          <Text>{groupText}</Text>
                                                   </View>
-                                                { groupedItems[groupId].map((item: any) => {
-                                                    return (
-                                                      <TouchableOpacity
+                                          {
+                                              groupedItems[groupId].map((item: any) => {
+                                                  return (
+                                                      <TouchableOpacity key={this.props.itemKey(item)}
                                                                         onPress={() => this.listItemClick(item,this.props.itemKey(item))}
                                                                         style={{ paddingTop: 6, paddingRight: 24, paddingBottom: 6, paddingLeft: 24, borderBottomWidth: 1, borderBottomColor: "#d7d7d7" }}>
                                                           {children(item)}
@@ -180,10 +198,10 @@ export default class NativeDataList extends React.Component<DataListProps> {
                                           </View>)
                                           })
                                           : <View style={{}}>
-                                              {
-                                                  groupedItems.map((item: any) => {
+                                              {groupedItems.map((item: any) => {
+                                                      console.log({item})
                                                       return (
-                                                      <View key={this.props.itemKey(item)}>
+                                                      <View style={{backgroundColor: 'green'}} key={this.props.itemKey(item)}>
                                                       {children(item)}
                                                   </View>
                                                   );
@@ -196,6 +214,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
                       }}>
             </FlatList>
         );
+
         //if (this.props.expandable) {
 
         //     return (

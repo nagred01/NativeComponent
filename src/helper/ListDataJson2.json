@@ -2,9 +2,9 @@
 
   {
     "acType": "Checking",
-    "groupId":11,
+    "groupId":0,
     "groupKey":1,
-    "id":123,
+    "id":0,
     "name": "Free Checking",
     "type": "Current",
     "balance": "$2,341.39",
@@ -16,9 +16,9 @@
   },
   {
     "acType": "Checking",
-    "groupId":11,
+    "groupId":1,
     "groupKey":2,
-    "id":124,
+    "id":1,
     "name": "Free Checking 2",
     "type": "Current",
     "balance": "$2,341.39",
@@ -30,9 +30,9 @@
   },
   {
     "acType": "Checking 2",
-    "groupId":12,
+    "groupId":2,
     "groupKey":2,
-    "id":125,
+    "id":2,
     "name": "Free Checking 2",
     "type": "Current",
     "balance": "$2,341.39",

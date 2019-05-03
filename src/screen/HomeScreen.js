@@ -26,6 +26,11 @@ export default class App extends Component<Props> {
         }
 
     }
+    onLayout=(layout)=>{
+        const {width, height} = layout
+        console.log('The Layout Mode is ', width > height? 'Landscape':'Portrait')
+
+    }
     render() {
         const { dataListItems } = this.state
         let accItems = [];
@@ -40,7 +45,7 @@ export default class App extends Component<Props> {
         }
         return (
             <View style={styles.container}
-                   onLayout={(obj)=>console.log(obj.nativeEvent.layout)}
+                   onLayout={(obj)=> {obj && this.onLayout(obj.nativeEvent.layout)}}
             >
                 <NativeHeader headerText={'Header'}/>
                 <ScrollView style={styles.content}>
