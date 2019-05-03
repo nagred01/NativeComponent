@@ -26,13 +26,13 @@ export default class ListDataScreen extends Component{
                     itemsSource={this.state.dataListItems}
                     groupsSource={[{"acType": "Checking",
                         "groupId":1,
-                        "groupKey":0},
-                        { "acType": "Checking",
-                        "groupId":2,
-                        "groupKey":1},
-                        { "acType": "Checking 2",
+                        "groupKey":1
+                    },{"acType": "Testing",
                         "groupId":3,
-                        "groupKey":1}]}
+                        "groupKey":3
+                    }
+
+                      ]}
                     itemKey={(index) =>  index }
                     onClick={(index)=> { alert('PRESS')}}
                     itemId={"id"}

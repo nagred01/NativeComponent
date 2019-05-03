@@ -1,7 +1,7 @@
 [
 
   {
-    "acType": "Checking",
+//    "acType": "Checking",
     "groupId":0,
     "groupKey":1,
     "id":0,
@@ -15,9 +15,9 @@
     "outStanding": ""
   },
   {
-    "acType": "Checking",
-    "groupId":1,
-    "groupKey":2,
+//    "acType": "Checking",
+    "groupId":3,
+    "groupKey":3,
     "id":1,
     "name": "Free Checking 2",
     "type": "Current",
@@ -29,9 +29,9 @@
     "outStanding": ""
   },
   {
-    "acType": "Checking 2",
-    "groupId":2,
-    "groupKey":2,
+//    "acType": "Checking 2",
+    "groupId":3,
+    "groupKey":3,
     "id":2,
     "name": "Free Checking 2",
     "type": "Current",
