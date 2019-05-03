@@ -31,7 +31,6 @@ export default class ListDataScreen extends Component{
                         "groupId":3,
                         "groupKey":3
                     }
-
                       ]}
                     itemKey={(index) =>  index }
                     onClick={(index)=> { alert('PRESS')}}
@@ -39,38 +38,40 @@ export default class ListDataScreen extends Component{
                     groupId={'groupId'}
                     groupKey={'groupKey'}
                     groupText={"acType"}
-                    children={(subItem)=>{
-                        console.log({subItem})
-                        return(
-                            <View>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Text style={{
-                                    fontSize: 20,
-                                    color: '#4B759B'
-                                }}>{subItem.name}</Text>
-                                <View style={{ flex: 1 }} />
-                                <Text style={{
-                                    fontSize: 20,
-                                    color: 'black'
-                                }}>{subItem.balance}</Text>
-                            </View>
-                            <View style={{ flexDirection: 'row', marginTop: 2 }} >
-                            <Text style={{
-                                fontSize: 14,
-                                color: 'black'
-                                }}>{subItem.xType}</Text>
-                            <View style={{ flex: 1 }} />
-                            <Text style={{
-                            fontSize: 14,
-                            color: 'black'
-                                }}>{subItem.availableType === ''
-                            ? subItem.outStanding
-                            : subItem.availableType + ' Balance'}</Text>
-                        </View>
-                            </View>
-
-                   )
-                    }}
+                    titleItems={["name","balance"]}
+                    detailItems={["outStanding","availableType"]}
+                   //  children={(subItem)=>{
+                   //      console.log({subItem})
+                   //      return(
+                   //          <View>
+                   //          <View style={{ flexDirection: 'row' }}>
+                   //              <Text style={{
+                   //                  fontSize: 20,
+                   //                  color: '#4B759B'
+                   //              }}>{subItem.name}</Text>
+                   //              <View style={{ flex: 1 }} />
+                   //              <Text style={{
+                   //                  fontSize: 20,
+                   //                  color: 'black'
+                   //              }}>{subItem.balance}</Text>
+                   //          </View>
+                   //          <View style={{ flexDirection: 'row', marginTop: 2 }} >
+                   //              <Text style={{
+                   //                  fontSize: 14,
+                   //                  color: 'black'
+                   //                  }}>{subItem.xType}</Text>
+                   //              <View style={{ flex: 1 }} />
+                   //              <Text style={{
+                   //              fontSize: 14,
+                   //              color: 'black'
+                   //                  }}>{subItem.availableType === ''
+                   //              ? subItem.outStanding
+                   //              : subItem.availableType + ' Balance'}</Text>
+                   //          </View>
+                   //          </View>
+                   //
+                   // )
+                   //  }}
                 />
 
             </View>
