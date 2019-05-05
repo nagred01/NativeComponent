@@ -180,7 +180,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
                                                 {
                                                     titleItems.map((ind,index)=>{
                                                         console.log(subItem[titleItems[index]])
-                                                        return index%2 !== 0 ?  (
+                                                        return index%2 === 0 ?  (
                                                             <View style={{ flexDirection: 'row' }}>
                                                                 <Text style={{
                                                                     fontSize: 20,
@@ -197,7 +197,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
                                                 }
                                                 {
                                                     detailItems.map((ind,index)=>{
-                                                        return index % 2 !== 0 ?  (
+                                                        return index % 2 === 0 ?  (
                                                             <View style={{ flexDirection: 'row', marginTop: 2 }} >
                                                                 <Text style={{
                                                                     fontSize: 14,
