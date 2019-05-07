@@ -158,45 +158,65 @@ export default class NativeDataList extends React.Component<DataListProps> {
         console.log(JSON.stringify(groupedItems), groupedObjectKey)
 
         return (
-                    <FlatList data={this.props.groupsSource}
+                    <FlatList
+                        data={this.props.groupsSource}
                       renderItem={({ item, index }) => {
                           return (
-                                  <View key={item.id}>
-                                      <View style={{  paddingHorizontal:24, paddingVertical:6, backgroundColor: '#F5F5F5', borderTopWidth: 1, borderTopColor: '#d7d7d7', borderBottomWidth: 1, borderBottomColor: "#d7d7d7", fontSize: 20.8, lineHeight: 28.8 }}>
-                                          <Text style={{fontSize: 20}}>{item}</Text>
-                                      </View>
-                                      {
-                                          groupedItems[item].map((subItem: any) => {
-                                              return (
-                                                  <TouchableOpacity key={subItem.id}
-                                                                    onPress={() => this.listItemClick(subItem,this.props.itemKey(subItem))}
-                                                                    style={{ paddingHorizontal:24, paddingVertical:6, borderBottomWidth: 1, borderBottomColor: "#d7d7d7" }}>
-                                                      <View style={{ flexDirection: 'row' }}>
-                                                          <Text style={{
-                                                              fontSize: 20,
-                                                              color: '#0061B8'
-                                                          }}>{subItem.nickname}</Text>
-                                                          <View style={{ flex: 1 }} />
-                                                          <Text style={{
-                                                              fontSize: 20,
-                                                              color: 'black'
-                                                          }}>{Math.abs(subItem.availableBalance? subItem.availableBalance : subItem.ledgerBalance)}</Text>
-                                                      </View>
 
-                                                      <View style={{ flexDirection: 'row', marginTop: 2 }} >
-                                                          <Text style={{
-                                                              fontSize: 16,
-                                                              color: 'black'
-                                                          }}>{subItem.accountNumber}</Text>
-                                                          <View style={{ flex: 1 }} />
-                                                          <Text style={{
-                                                              fontSize: 16,
-                                                              color: 'black'
-                                                          }}>{subItem.availableBalance? 'Available Balance' : 'Current Balance'}</Text>
-                                                      </View>
-                                                  </TouchableOpacity>
-                                              );
-                                          })
+                                  <View key={item.id}>
+                                      {groupedItems[item] && <View>
+                                          <View style={{
+                                              paddingHorizontal: 24,
+                                              paddingVertical: 6,
+                                              backgroundColor: '#F5F5F5',
+                                              borderTopWidth: 1,
+                                              borderTopColor: '#d7d7d7',
+                                              borderBottomWidth: 1,
+                                              borderBottomColor: "#d7d7d7",
+                                              fontSize: 20.8,
+                                              lineHeight: 28.8
+                                          }}>
+                                              <Text style={{fontSize: 20}}>{item}</Text>
+                                          </View>
+                                          {
+                                              groupedItems[item].map((subItem: any) => {
+                                                  return (
+                                                      <TouchableOpacity key={subItem.id}
+                                                                        onPress={() => this.listItemClick(subItem, this.props.itemKey(subItem))}
+                                                                        style={{
+                                                                            paddingHorizontal: 24,
+                                                                            paddingVertical: 6,
+                                                                            borderBottomWidth: 1,
+                                                                            borderBottomColor: "#d7d7d7"
+                                                                        }}>
+                                                          <View style={{flexDirection: 'row'}}>
+                                                              <Text style={{
+                                                                  fontSize: 20,
+                                                                  color: '#0061B8'
+                                                              }}>{subItem.nickname}</Text>
+                                                              <View style={{flex: 1}}/>
+                                                              <Text style={{
+                                                                  fontSize: 20,
+                                                                  color: 'black'
+                                                              }}>{Math.abs(subItem.availableBalance ? subItem.availableBalance : subItem.ledgerBalance)}</Text>
+                                                          </View>
+
+                                                          <View style={{flexDirection: 'row', marginTop: 2}}>
+                                                              <Text style={{
+                                                                  fontSize: 16,
+                                                                  color: 'black'
+                                                              }}>{subItem.accountNumber}</Text>
+                                                              <View style={{flex: 1}}/>
+                                                              <Text style={{
+                                                                  fontSize: 16,
+                                                                  color: 'black'
+                                                              }}>{subItem.availableBalance ? 'Available Balance' : 'Current Balance'}</Text>
+                                                          </View>
+                                                      </TouchableOpacity>
+                                                  );
+                                              })
+                                          }
+                                      </View>
                                       }
                                   </View>
 
