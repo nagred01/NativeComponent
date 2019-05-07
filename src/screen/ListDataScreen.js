@@ -24,9 +24,7 @@ export default class ListDataScreen extends Component{
                 <NativeDataList2
                     navigation={this.props.navigation}
                     itemsSource={this.state.dataListItems}
-                    groupsSource={[{
-                        groupKey:'typeId'}
-                      ]}
+                    groupsSource={[ 'Checking', 'Savings', 'Loan' ]}
                     itemKey={(index) =>  index }
                     onClick={(index)=> { alert('PRESS')}}
                     itemId={"id"}

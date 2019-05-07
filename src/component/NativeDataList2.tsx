@@ -158,7 +158,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
         console.log(JSON.stringify(groupedItems), groupedObjectKey)
 
         return (
-                    <FlatList data={groupedObjectKey}
+                    <FlatList data={this.props.groupsSource}
                       renderItem={({ item, index }) => {
                           return (
                                   <View key={item.id}>
