@@ -24,54 +24,16 @@ export default class ListDataScreen extends Component{
                 <NativeDataList2
                     navigation={this.props.navigation}
                     itemsSource={this.state.dataListItems}
-                    groupsSource={[{"acType": "Checking",
-                        "groupId":1,
-                        "groupKey":1
-                    },{"acType": "Testing",
-                        "groupId":3,
-                        "groupKey":3
-                    }
+                    groupsSource={[{
+                        groupKey:'typeId'}
                       ]}
                     itemKey={(index) =>  index }
                     onClick={(index)=> { alert('PRESS')}}
                     itemId={"id"}
-                    groupId={'groupId'}
-                    groupKey={'groupKey'}
-                    groupText={"acType"}
-                    titleItems={["name","balance"]}
-                    detailItems={["outStanding","availableType"]}
-                   //  children={(subItem)=>{
-                   //      console.log({subItem})
-                   //      return(
-                   //          <View>
-                   //          <View style={{ flexDirection: 'row' }}>
-                   //              <Text style={{
-                   //                  fontSize: 20,
-                   //                  color: '#4B759B'
-                   //              }}>{subItem.name}</Text>
-                   //              <View style={{ flex: 1 }} />
-                   //              <Text style={{
-                   //                  fontSize: 20,
-                   //                  color: 'black'
-                   //              }}>{subItem.balance}</Text>
-                   //          </View>
-                   //          <View style={{ flexDirection: 'row', marginTop: 2 }} >
-                   //              <Text style={{
-                   //                  fontSize: 14,
-                   //                  color: 'black'
-                   //                  }}>{subItem.xType}</Text>
-                   //              <View style={{ flex: 1 }} />
-                   //              <Text style={{
-                   //              fontSize: 14,
-                   //              color: 'black'
-                   //                  }}>{subItem.availableType === ''
-                   //              ? subItem.outStanding
-                   //              : subItem.availableType + ' Balance'}</Text>
-                   //          </View>
-                   //          </View>
-                   //
-                   // )
-                   //  }}
+                    groupId={'typeId'}
+                    groupKey={'typeId'}
+                    groupText={"typeId"}
+
                 />
 
             </View>

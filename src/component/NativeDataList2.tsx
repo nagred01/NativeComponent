@@ -20,10 +20,6 @@ interface DataListProps extends NativeControl {
 
     groupsSource?: Array<any>;
 
-    titleItems: Array<any>,
-
-    detailItems: Array<any>,
-
     groupId: string,
 
     groupText: string,
@@ -150,127 +146,63 @@ export default class NativeDataList extends React.Component<DataListProps> {
 
 
     render() {
-        const {groupsSource, itemsSource, groupKey, groupId, groupText, itemKey, titleItems, detailItems} = this.props;
-        let groupedItems =groupsSource
-            ? this.groupBy(itemsSource, groupKey)
-            : itemsSource;
-        //console.log(JSON.stringify({groupsSource, itemsSource, groupKey, groupId, groupText, itemKey, titleItems, detailItems,groupedItems}))
-        //const children = this.props.children as (item: any) => React.ReactNode;
+        let groupedItems = this.props.groupsSource
+            ? this.groupBy(this.props.itemsSource, this.props.groupKey)
+            : this.props.itemsSource;
+        const children = this.props.children as (item: any) => React.ReactNode;
+        const { } = this.props;
+        let groupedObjectKey = []
+        for(let ind in groupedItems){
+            groupedObjectKey.push(ind)
+        }
+        console.log(JSON.stringify(groupedItems), groupedObjectKey)
+
         return (
-            <FlatList
-                data={groupsSource}
-                renderItem={({ item, index }) =>{
-                    let localGroupId = item[groupId]
-                    let localGroupText = item[groupText]
-                    console.log('Item', item, groupedItems[localGroupId])
-                    return (
-                        groupedItems[localGroupId] && groupedItems[localGroupId].length !== 0 &&
-                        <View key={localGroupId} >
-                            <View style={{ paddingTop: 4, paddingRight: 24, paddingBottom: 4, paddingLeft: 24, backgroundColor: '#F5F5F5', borderTopWidth: 1, borderTopColor: '#d7d7d7', borderBottomWidth: 1, borderBottomColor: "#d7d7d7", fontSize: 20.8, lineHeight: 28.8 }}>
-                                <Text>{localGroupText}</Text>
-                            </View>
-                            {
-                                groupedItems[localGroupId].map((subItem: any, itemIndex: any) => {
-                                    console.log('Test',subItem)
-                                    return (
-                                        <TouchableOpacity key={itemIndex}
-                                                          onPress={() => this.listItemClick(item,itemKey(item))}
-                                                          style={{ paddingTop: 6, paddingRight: 24, paddingBottom: 6, paddingLeft: 24, borderBottomWidth: 1, borderBottomColor: "#d7d7d7" }}>
+                    <FlatList data={groupedObjectKey}
+                      renderItem={({ item, index }) => {
+                          return (
+                                  <View key={item.id}>
+                                      <View style={{  paddingHorizontal:24, paddingVertical:6, backgroundColor: '#F5F5F5', borderTopWidth: 1, borderTopColor: '#d7d7d7', borderBottomWidth: 1, borderBottomColor: "#d7d7d7", fontSize: 20.8, lineHeight: 28.8 }}>
+                                          <Text style={{fontSize: 20}}>{item}</Text>
+                                      </View>
+                                      {
+                                          groupedItems[item].map((subItem: any) => {
+                                              return (
+                                                  <TouchableOpacity key={subItem.id}
+                                                                    onPress={() => this.listItemClick(subItem,this.props.itemKey(subItem))}
+                                                                    style={{ paddingHorizontal:24, paddingVertical:6, borderBottomWidth: 1, borderBottomColor: "#d7d7d7" }}>
+                                                      <View style={{ flexDirection: 'row' }}>
+                                                          <Text style={{
+                                                              fontSize: 20,
+                                                              color: '#0061B8'
+                                                          }}>{subItem.nickname}</Text>
+                                                          <View style={{ flex: 1 }} />
+                                                          <Text style={{
+                                                              fontSize: 20,
+                                                              color: 'black'
+                                                          }}>{Math.abs(subItem.availableBalance? subItem.availableBalance : subItem.ledgerBalance)}</Text>
+                                                      </View>
 
-                                                {
-                                                    titleItems.map((ind,index)=>{
-                                                        console.log(subItem[titleItems[index]])
-                                                        return index%2 === 0 ?  (
-                                                            <View style={{ flexDirection: 'row' }}>
-                                                                <Text style={{
-                                                                    fontSize: 20,
-                                                                    color: '#4B759B'
-                                                                }}>{subItem[titleItems[index]]}</Text>
-                                                                <View style={{ flex: 1 }} />
-                                                                <Text style={{
-                                                                    fontSize: 20,
-                                                                    color: 'black'
-                                                                }}>{subItem[titleItems[index+1]]}</Text>
-                                                            </View>
-                                                        ): (<View />)
-                                                    })
-                                                }
-                                                {
-                                                    detailItems.map((ind,index)=>{
-                                                        return index % 2 === 0 ?  (
-                                                            <View style={{ flexDirection: 'row', marginTop: 2 }} >
-                                                                <Text style={{
-                                                                    fontSize: 14,
-                                                                    color: 'black'
-                                                                }}>{subItem[detailItems[index]]}</Text>
-                                                                <View style={{ flex: 1 }} />
-                                                                <Text style={{
-                                                                    fontSize: 14,
-                                                                    color: 'black'
-                                                                }}>{subItem[detailItems[index+1]]+ ' Balance'}</Text>
-                                                            </View>
-                                                        ): (<View />)
-                                                    })
-                                                }
+                                                      <View style={{ flexDirection: 'row', marginTop: 2 }} >
+                                                          <Text style={{
+                                                              fontSize: 16,
+                                                              color: 'black'
+                                                          }}>{subItem.accountNumber}</Text>
+                                                          <View style={{ flex: 1 }} />
+                                                          <Text style={{
+                                                              fontSize: 16,
+                                                              color: 'black'
+                                                          }}>{subItem.availableBalance? 'Available Balance' : 'Current Balance'}</Text>
+                                                      </View>
+                                                  </TouchableOpacity>
+                                              );
+                                          })
+                                      }
+                                  </View>
 
-                                        </TouchableOpacity>
-                                    );
-                                })
-                            }
-                        </View>)
-                }}></FlatList>
-
-
-
-
-
-            //         <FlatList data={this.props.groupsSource}
-            //           renderItem={({ item, index }) => {
-            //               return (
-            //                   <View>
-            //                       {
-            //                           this.props.groupsSource
-            //                               ?this.props.groupsSource.map((group: any) =>
-            //                           {
-            //
-            //                                   let groupId = item[this.props.groupId];
-            //                                   let groupText = item[this.props.groupText];
-            //                                   console.log('GroupsSource', group,'\n', groupId, groupText)
-            //                                   return (
-            //                                       groupedItems[groupId] && groupedItems[groupId].length !== 0 &&
-            //                                       <View key={groupId} style={{}}>
-            //                                           <View style={{ paddingTop: 0, paddingRight: 24, paddingBottom: 0, paddingLeft: 24, backgroundColor: '#F5F5F5', borderTopWidth: 1, borderTopColor: '#d7d7d7', borderBottomWidth: 1, borderBottomColor: "#d7d7d7", fontSize: 20.8, lineHeight: 28.8 }}>
-            //                                               <Text>{groupText}</Text>
-            //                                       </View>
-            //                               {
-            //                                   groupedItems[groupId].map((item: any) => {
-            //                                       return (
-            //                                           <TouchableOpacity key={this.props.itemKey(item)}
-            //                                                             onPress={() => this.listItemClick(item,this.props.itemKey(item))}
-            //                                                             style={{ paddingTop: 6, paddingRight: 24, paddingBottom: 6, paddingLeft: 24, borderBottomWidth: 1, borderBottomColor: "#d7d7d7" }}>
-            //                                               {children(item)}
-            //                                           </TouchableOpacity>
-            //                                       );
-            //                                   })
-            //                               }
-            //                               </View>)
-            //                               })
-            //                               : <View style={{}}>
-            //                                   {groupedItems.map((item: any) => {
-            //                                           console.log({item})
-            //                                           return (
-            //                                           <View style={{backgroundColor: 'green'}} key={this.props.itemKey(item)}>
-            //                                           {children(item)}
-            //                                       </View>
-            //                                       );
-            //                                       })
-            //                                   }
-            //                               </View>
-            //                       }
-            //                   </View>
-            //               );
-            //           }}>
-            // </FlatList>
+                          );
+                      }}>
+            </FlatList>
         );
 
         //if (this.props.expandable) {

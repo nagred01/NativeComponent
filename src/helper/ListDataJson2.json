@@ -1,46 +1,349 @@
 [
-
   {
-//    "acType": "Checking",
-    "groupId":0,
-    "groupKey":1,
-    "id":0,
-    "name": "Free Checking",
-    "type": "Current",
-    "balance": "$2,341.39",
-    "LBalance": "$2,341.39",
-    "availableType": "Available",
-    "xType": "x456-90",
-    "iconType": "star",
-    "outStanding": ""
+    "id": "1",
+    "accountNumber": "x6-00",
+    "ofxAccountId": "4_000123456-S00",
+    "ofxAccountType": "SAVINGS",
+    "isAsset": true,
+    "typeId": "Savings",
+    "description": "Super Savings",
+    "nickname": "Super Savings",
+    "ledgerBalance": 178163908,
+    "availableBalance": 3270,
+    "hasDetails": true,
+    "openDate": "1997-10-22",
+    "interestRate": 0,
+    "interestYearToDate": 0,
+    "getAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/1",
+      "token": "kJqTJyh3QtcQ75Vd7BvEUbi2T+qo7GBTt02gCUxNPKU="
+    },
+    "accountDetailsPageAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/1/Page",
+      "token": "YAVap+WUMusq6RhwK9BIebHEGrPoiOqy+bSs9IvSAcU="
+    },
+    "eStatementsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/1/EStatements",
+      "token": "YuBt8SkFkzuBZBEXVam4HPds2WRpZ4WEbk4ymbC5Pys="
+    },
+    "transactionsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/1/Transactions",
+      "token": "4pblFyN3cWsM/WpmSOQ69f1WoJFDTaHvaccHcLoBS08="
+    },
+    "changeNicknameAt": {
+      "method": "PUT",
+      "url": "/UI/api/Accounts/1/Nickname",
+      "token": "ApecP1cM7bY4z6cXbAPLhgD3UQECg4MfCv+o2XZfB0Y="
+    }
   },
   {
-//    "acType": "Checking",
-    "groupId":3,
-    "groupKey":3,
-    "id":1,
-    "name": "Free Checking 2",
-    "type": "Current",
-    "balance": "$2,341.39",
-    "LBalance": "$2,341.39",
-    "availableType": "Available",
-    "xType": "x456-99",
-    "iconType": "star",
-    "outStanding": ""
+    "id": "2",
+    "accountNumber": "x6-16",
+    "ofxAccountId": "4_000123456-S16",
+    "ofxAccountType": "SAVINGS",
+    "isAsset": true,
+    "typeId": "Savings",
+    "description": "Money Market",
+    "nickname": "Money Market",
+    "ledgerBalance": 2528.29,
+    "availableBalance": 28.29,
+    "hasDetails": true,
+    "openDate": "2000-07-19",
+    "interestRate": 0,
+    "interestYearToDate": 0,
+    "getAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/2",
+      "token": "hFURqrrd4i/WiUgLOdQRq/0CjjuHyMos6wuplzKsn1k="
+    },
+    "accountDetailsPageAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/2/Page",
+      "token": "1pB9R1X7+AMigoEj+/gPQeu528bI0ZuzFrY7//dIldM="
+    },
+    "eStatementsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/2/EStatements",
+      "token": "fIIeesTsj8516gvw7f5rjk+vaibD57CBp16+Q4SnZUo="
+    },
+    "transactionsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/2/Transactions",
+      "token": "fvKAhiEMYZ5X24NrcNIEoIOyWYmO8J5yYPgTUivnuL4="
+    },
+    "changeNicknameAt": {
+      "method": "PUT",
+      "url": "/UI/api/Accounts/2/Nickname",
+      "token": "8jdlN+y00BzRMHOjZHm4e1za0EVMawsCdBfGuhNR5i8="
+    }
   },
   {
-//    "acType": "Checking 2",
-    "groupId":3,
-    "groupKey":3,
-    "id":2,
-    "name": "Free Checking 2",
-    "type": "Current",
-    "balance": "$2,341.39",
-    "LBalance": "$2,341.39",
-    "availableType": "Available",
-    "xType": "x456-99",
-    "iconType": "star",
-    "outStanding": ""
+    "id": "3",
+    "accountNumber": "x6-90",
+    "ofxAccountId": "4_000123456-S90",
+    "ofxAccountType": "CHECKING",
+    "isAsset": true,
+    "typeId": "Checking",
+    "description": "Free Checking",
+    "nickname": "Free Checking",
+    "ledgerBalance": 2341.39,
+    "availableBalance": 2341.39,
+    "hasDetails": true,
+    "openDate": "1997-10-22",
+    "interestRate": 0,
+    "interestYearToDate": 0,
+    "getAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/3",
+      "token": "GivMJLJGQ92CkKWc0WETtZqHFGQBSbFSUsaUErgaLz8="
+    },
+    "accountDetailsPageAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/3/Page",
+      "token": "iUcnrFnT6ZHwjr2x2G4gwRjkG1rLsoVd5isfrK8Ye7k="
+    },
+    "eStatementsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/3/EStatements",
+      "token": "E4LYHLuPe2JDgExQ8yF5mJskePeTpyMHa8FWwLieYZs="
+    },
+    "transactionsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/3/Transactions",
+      "token": "Y/v4qUPP6huWCUoin5pOXTt/WteXdKBuFm6mt3dXj+Y="
+    },
+    "changeNicknameAt": {
+      "method": "PUT",
+      "url": "/UI/api/Accounts/3/Nickname",
+      "token": "q3KoA0ljzV3n61TRhjGNx1pIWPIaH3jZuUpBwwCp7BM="
+    }
+  },
+  {
+    "id": "4",
+    "accountNumber": "x6-02",
+    "ofxAccountId": "4_000123456-L02",
+    "ofxAccountType": "CREDITLINE",
+    "isLiability": true,
+    "typeId": "Loan",
+    "description": "Home Mortgage",
+    "nickname": "Home Mortgage",
+    "ledgerBalance": -183399.01,
+    "availableCreditBalance": 0,
+    "hasDetails": true,
+    "openDate": "2003-03-31",
+    "interestRate": 0,
+    "interestYearToDate": 0,
+    "paymentDueAmount": 1340,
+    "paymentDueDate": "2010-03-01",
+    "lastPaymentAmount": 1.55,
+    "lastPaymentDate": "2010-08-23",
+    "payoffAmount": 0.02,
+    "getAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/4",
+      "token": "UxbtLaMKPgiBT6UHZKV4cA7g3fI2Zh6kEkyTmtQLBh0="
+    },
+    "accountDetailsPageAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/4/Page",
+      "token": "xcK+mQYdQl/EwLkxgIoswAfGJy9DCya1MSf6extSlvo="
+    },
+    "eStatementsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/4/EStatements",
+      "token": "OS9O23JbHH1f5l6xhxuRmz84zCbXZkqV5jfCZW8Yg8A="
+    },
+    "transactionsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/4/Transactions",
+      "token": "q0q3t9FDzWqdk70XQKetm44qEOw5S0wLFXz9tAQ16uI="
+    },
+    "changeNicknameAt": {
+      "method": "PUT",
+      "url": "/UI/api/Accounts/4/Nickname",
+      "token": "jfa9qKmPxodOd9eiaEky9+jDsjVJyw2akgUgAhfCJ/0="
+    }
+  },
+  {
+    "id": "5",
+    "accountNumber": "x6-48",
+    "ofxAccountId": "4_000123456-L48",
+    "ofxAccountType": "CREDITLINE",
+    "isLiability": true,
+    "typeId": "Loan",
+    "description": "2005 Honda Loan",
+    "nickname": "2005 Honda Loan",
+    "ledgerBalance": -2466.34,
+    "availableCreditBalance": 0,
+    "hasDetails": true,
+    "openDate": "2009-06-02",
+    "interestRate": 7,
+    "interestYearToDate": 108.92,
+    "paymentDueAmount": 260.12,
+    "paymentDueDate": "2010-05-15",
+    "lastPaymentAmount": 1,
+    "lastPaymentDate": "2010-08-20",
+    "payoffAmount": 2529.14,
+    "getAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/5",
+      "token": "H8ZXRoB6oEyXlOVZmip5X2bfHcIkQKwhQtAFKMwiGXQ="
+    },
+    "accountDetailsPageAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/5/Page",
+      "token": "YurFxQh92ck6oBT7YdQjAS4hbT+HXFZwuKvBRGm6l28="
+    },
+    "eStatementsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/5/EStatements",
+      "token": "YFJoL4Lm+B6V4KvP+RFmxkQOI4UIrdFc2nVya5gOwJ8="
+    },
+    "transactionsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/5/Transactions",
+      "token": "Kew96Q/H9sDn4KYfBQMzU5PooT6nCkgUAc45nmgoRQ8="
+    },
+    "changeNicknameAt": {
+      "method": "PUT",
+      "url": "/UI/api/Accounts/5/Nickname",
+      "token": "TmryRTB48jIcd/tZcNYO5dMUTs0YJmk0ToH2IaWjItk="
+    }
+  },
+  {
+    "id": "6",
+    "accountNumber": "x1-00",
+    "ofxAccountId": "4_000654321-S00",
+    "ofxAccountType": "SAVINGS",
+    "isAsset": true,
+    "typeId": "Savings",
+    "description": "SAVINGS/PLUS",
+    "nickname": "SAVINGS/PLUS",
+    "ledgerBalance": 59.2,
+    "availableBalance": 54.2,
+    "hasDetails": true,
+    "openDate": "2004-04-20",
+    "interestRate": 0,
+    "interestYearToDate": 0,
+    "getAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/6",
+      "token": "l8ykV+L0Tj1dqToeSiUeoUgksi7ODGY9RkXfPFExUxA="
+    },
+    "accountDetailsPageAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/6/Page",
+      "token": "WsD7eFSLwCpT0KjAS8m9KJdKzJj69SlzBlxALKqMCS8="
+    },
+    "eStatementsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/6/EStatements",
+      "token": "/W6OTPjrPavaYXKkeNZXqIDpW/Hl/2AdxU7XQMyLTsw="
+    },
+    "transactionsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/6/Transactions",
+      "token": "3mnKqnaE/HR61H8LieiGEL8C4c4tGIVwp2f4AYD6IYY="
+    },
+    "changeNicknameAt": {
+      "method": "PUT",
+      "url": "/UI/api/Accounts/6/Nickname",
+      "token": "2Hd4WFmb33DwUKuPH2gszSEWoHxlAssHg8UaNYzD5EI="
+    }
+  },
+  {
+    "id": "7",
+    "accountNumber": "x1-90",
+    "ofxAccountId": "4_000654321-S90",
+    "ofxAccountType": "CHECKING",
+    "isAsset": true,
+    "typeId": "Checking",
+    "description": "REGULAR CHECKING",
+    "nickname": "REGULAR CHECKING",
+    "ledgerBalance": 449.73,
+    "availableBalance": 449.73,
+    "hasDetails": true,
+    "openDate": "2005-04-06",
+    "interestRate": 0,
+    "interestYearToDate": 0,
+    "getAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/7",
+      "token": "reHRHN/dpwoeZjvVOHVB+jFeUV0/Ql/jQGwTrlK64FA="
+    },
+    "accountDetailsPageAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/7/Page",
+      "token": "bCZDiVzVJsaLUn2DTlEBaI9nWRp5Eons+sN+Bh/dmhM="
+    },
+    "eStatementsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/7/EStatements",
+      "token": "bc+jlZkTc0n9zIJD6QK4WPrtNaq/pNKyTyqFnJIQzXU="
+    },
+    "transactionsAt": {
+      "method": "GET",
+      "url": "/UI/api/Accounts/7/Transactions",
+      "token": "jHSKTd/N5275aaaR53C8nxnrLiCuKjQKgxW4Sg1g1N0="
+    },
+    "changeNicknameAt": {
+      "method": "PUT",
+      "url": "/UI/api/Accounts/7/Nickname",
+      "token": "TJR2dw6F0WZuOdL2pByA3zuedMPNilGL3pReAGjdB/c="
+    }
   }
-
 ]
+
+
+
+
+//[
+//
+//  {
+////    "acType": "Checking",
+//    "groupId":0,
+//    "groupKey":1,
+//    "id":0,
+//    "name": "Free Checking",
+//    "type": "Current",
+//    "balance": "$2,341.39",
+//    "LBalance": "$2,341.39",
+//    "availableType": "Available",
+//    "xType": "x456-90",
+//    "iconType": "star",
+//    "outStanding": ""
+//  },
+//  {
+////    "acType": "Checking",
+//    "groupId":3,
+//    "groupKey":3,
+//    "id":1,
+//    "name": "Free Checking 2",
+//    "type": "Current",
+//    "balance": "$2,341.39",
+//    "LBalance": "$2,341.39",
+//    "availableType": "Available",
+//    "xType": "x456-99",
+//    "iconType": "star",
+//    "outStanding": ""
+//  },
+//  {
+////    "acType": "Checking 2",
+//    "groupId":3 ,
+//    "groupKey":3,
+//    "id":2,
+//    "name": "Free Checking 2",
+//    "type": "Current",
+//    "balance": "$2,341.39",
+//    "LBalance": "$2,341.39",
+//    "availableType": "Available",
+//    "xType": "x456-99",
+//    "iconType": "star",
+//    "outStanding": ""
+//  }
+//
+//]
