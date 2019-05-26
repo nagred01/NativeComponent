@@ -2,11 +2,11 @@ import * as React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View, Dimensions} from 'react-native';
 import NativeControl from "../Interfaces/NativeControl";
 import NativeItemDetail from './NativeItemDetail';
-import Animated from "react-native-reanimated";
+// import Animated from "react-native-reanimated";
 import { PanGestureHandler, State } from "react-native-gesture-handler";
 import StyleConfig from '../assets/StyleConfig/index';
 const { width, height } = Dimensions.get("window");
-const { cond, eq, add, set, Value, event, interpolate, Extrapolate } = Animated;
+// const { cond, eq, add, set, Value, event, interpolate, Extrapolate } = Animated;
 interface ListProps extends NativeControl {
     groupKey: string,
     itemKey: any,
@@ -111,54 +111,37 @@ export default class NativeList extends React.Component<ListProps> {
 
     renderTabView = () => {
         const DEFAULT_WIDTH = StyleConfig.responsiveWidth(25);
-        let listWidth = this.state.selectedItem == null ?  StyleConfig.responsiveWidth(100) :  this.transX
         return (<View style={{flex: 1, flexDirection: 'row'}}>
-            <PanGestureHandler
-                maxPointers={1}
-                onGestureEvent={this.onGestureEvent}
-                onHandlerStateChange={this.onGestureEvent}
-            >
-                <Animated.View
-                    style={{
-                        width: listWidth,
-                        borderRightWidth:1,
-                        borderColor:'#ddd'
-                    }}
-                >
-                    {this.renderList()}
-                </Animated.View>
 
-            </PanGestureHandler>
-            <Animated.View style={{flex:1}}>
-                <NativeItemDetail itemDetail={this.state.selectedItem} />
-            </Animated.View>
-        </View>)
+                    {this.renderList()}
+
+            </View>)
 
     }
 
-
-    dragX = new Value(0);
-    offsetX = new Value(width / 2);
-    gestureState = new Value(-1);
-    onGestureEvent = event([
-        {
-            nativeEvent: {
-                translationX: this.dragX,
-                translationY: 0,
-                state: this.gestureState,
-            },
-        },
-    ]);
-    transX = cond(
-        eq(this.gestureState, State.ACTIVE),
-        add(this.offsetX, this.dragX),
-        set(this.offsetX, add(this.offsetX, this.dragX)),
-    );
-    borderWidth = interpolate(this.transX, {
-        inputRange: [0, width],
-        outputRange: [0, 5],
-        extrapolate: Extrapolate.CLAMP
-    });
+    //
+    // dragX = new Value(0);
+    // offsetX = new Value(width / 2);
+    // gestureState = new Value(-1);
+    // onGestureEvent = event([
+    //     {
+    //         nativeEvent: {
+    //             translationX: this.dragX,
+    //             translationY: 0,
+    //             state: this.gestureState,
+    //         },
+    //     },
+    // ]);
+    // transX = cond(
+    //     eq(this.gestureState, State.ACTIVE),
+    //     add(this.offsetX, this.dragX),
+    //     set(this.offsetX, add(this.offsetX, this.dragX)),
+    // );
+    // borderWidth = interpolate(this.transX, {
+    //     inputRange: [0, width],
+    //     outputRange: [0, 5],
+    //     extrapolate: Extrapolate.CLAMP
+    // });
 
 }
 
