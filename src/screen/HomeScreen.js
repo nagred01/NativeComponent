@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, TouchableOpacity, Text, ScrollView,Picker} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Text, ScrollView, NativeModules} from 'react-native';
+
 import NativeText from '../component/NativeText'
 import NativeTextBox from '../component/NativeTextBox'
 import NativeImage from '../component/NativeImage'
@@ -10,8 +11,12 @@ import NativeDatePicker from '../component/NativeDatePicker';
 import NativeDateTimePicker from '../component/NativeDateTimePicker';
 import StyleConfig from '../assets/StyleConfig/index';
 import AppImages from '../assets/icons'
+
 const LIST_DATA = require('../helper/ListDataJson');
 type Props = {};
+
+
+const NativeHttpService = require('NativeModules').NativeHttpService
 export default class App extends Component<Props> {
 
     constructor(props) {
@@ -24,7 +29,7 @@ export default class App extends Component<Props> {
             datetime1: '2016-05-05 20:00',
             selectedItem:undefined
         }
-
+        NativeHttpService.get((res)=>{ console.log('NativeHttpService-',res)})
     }
     onLayout=(layout)=>{
         const {width, height} = layout
@@ -32,6 +37,7 @@ export default class App extends Component<Props> {
 
     }
     render() {
+
         const { dataListItems } = this.state
         let accItems = [];
         for(let ind in dataListItems){

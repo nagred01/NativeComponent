@@ -25,6 +25,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		2116DAC522665336009A2407 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C8E6692265BD8B00370A5B /* libRNGestureHandler.a */; };
+		217D6E2522ABD277002544CA /* NativeHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D6E2422ABD277002544CA /* NativeHttpService.m */; };
 		21D90608229ABF1F0061C465 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D90607229ABF1F0061C465 /* Main.storyboard */; };
 		21D9060B229AC0BC0061C465 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9060A229AC0BC0061C465 /* LoginVC.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -367,6 +368,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NativeComponent/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		15097C35CFAA473FB4517717 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		217D6E2322ABD277002544CA /* NativeHttpService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NativeHttpService.h; path = NativeComponent/NativeHttpService.h; sourceTree = "<group>"; };
+		217D6E2422ABD277002544CA /* NativeHttpService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NativeHttpService.m; path = NativeComponent/NativeHttpService.m; sourceTree = "<group>"; };
 		21D90607229ABF1F0061C465 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		21D90609229AC0BC0061C465 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginVC.h; path = NativeComponent/LoginVC.h; sourceTree = "<group>"; };
 		21D9060A229AC0BC0061C465 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginVC.m; path = NativeComponent/LoginVC.m; sourceTree = "<group>"; };
@@ -537,6 +540,8 @@
 				21D90607229ABF1F0061C465 /* Main.storyboard */,
 				21D90609229AC0BC0061C465 /* LoginVC.h */,
 				21D9060A229AC0BC0061C465 /* LoginVC.m */,
+				217D6E2322ABD277002544CA /* NativeHttpService.h */,
+				217D6E2422ABD277002544CA /* NativeHttpService.m */,
 			);
 			name = NativeComponent;
 			sourceTree = "<group>";
@@ -1261,6 +1266,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				217D6E2522ABD277002544CA /* NativeHttpService.m in Sources */,
 				21D9060B229AC0BC0061C465 /* LoginVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1375,6 +1381,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-eval/ios/react-native-eval",
 					"$(SRCROOT)/../node_modules/react-native-eval/ios/react-native-eval",
+					"$(SRCROOT)/../node_modules/react-native/React/Base",
 				);
 				INFOPLIST_FILE = NativeComponent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1401,6 +1408,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-eval/ios/react-native-eval",
 					"$(SRCROOT)/../node_modules/react-native-eval/ios/react-native-eval",
+					"$(SRCROOT)/../node_modules/react-native/React/Base",
 				);
 				INFOPLIST_FILE = NativeComponent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
